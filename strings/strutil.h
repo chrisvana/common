@@ -8,6 +8,8 @@
 #include <vector>
 #include "strings/stringpiece.h"
 
+namespace strings {
+
 // Has*
 bool HasPrefix(const StringPiece& base, const StringPiece& prefix);
 bool HasSuffix(const StringPiece& base, const StringPiece& suffix);
@@ -28,6 +30,10 @@ std::vector<std::string> SplitStringAllowEmpty(const StringPiece& base,
 std::vector<std::string> SplitString(const StringPiece& base,
                                      const StringPiece& delim,
                                      bool allow_empty);
+
+// Join
+std::string Join(std::vector<std::string> strings, const StringPiece& delim);
+std::string Join(std::vector<StringPiece> strings, const StringPiece& delim);
 
 // Implementations -------------------------
 
@@ -59,5 +65,7 @@ inline std::vector<std::string> SplitStringAllowEmpty(
     const StringPiece& delim) {
   return SplitString(base, delim, true);
 }
+
+}  // namespace strings
 
 #endif  // _STRINGS_STRUTIL_H__

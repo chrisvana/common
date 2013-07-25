@@ -7,18 +7,24 @@
 
 int main() {
   // HasPrefix
-  CHECK(HasPrefix("This is a block", "This"));
-  CHECK(!HasPrefix("This", "This is a block"));
+  CHECK(strings::HasPrefix("This is a block", "This"));
+  CHECK(!strings::HasPrefix("This", "This is a block"));
 
   // HasSuffix
-  CHECK(HasSuffix("This is a block", "block"));
-  CHECK(!HasSuffix("block", "This is a block"));
+  CHECK(strings::HasSuffix("This is a block", "block"));
+  CHECK(!strings::HasSuffix("block", "This is a block"));
 
-  std::vector<std::string> splits = SplitString("foo,bar,baz", ",");
+  // SplitString
+  std::vector<std::string> splits = strings::SplitString("foo,bar,baz", ",");
   CHECK_EQ(3, splits.size());
   CHECK_EQ("foo", splits[0]);
   CHECK_EQ("bar", splits[1]);
   CHECK_EQ("baz", splits[2]);
+
+  // Join
+  CHECK_EQ("foo,bar,baz", strings::Join(splits, ","));
+  CHECK_EQ("foobarbaz", strings::Join(splits, ""));
+  CHECK_EQ("", strings::Join(std::vector<std::string>(), ","));
 
   std::cout << "PASS" << std::endl;
   return 0;
