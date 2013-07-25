@@ -6,6 +6,8 @@
 #include "file/fileutil.h"
 #include "log/log.h"
 
+namespace file {
+
 std::string ReadFileToStringOrDie(const std::string& filename) {
   std::ifstream ifs(filename.c_str(), std::ifstream::in);
   CHECK(ifs.is_open());
@@ -14,3 +16,5 @@ std::string ReadFileToStringOrDie(const std::string& filename) {
   CHECK(!ifs.bad());
   return ret;
 }
+
+}  // namespace file
