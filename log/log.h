@@ -1,8 +1,8 @@
 // Copyright 2013
 // Author: Christopher Van Arsdale
 
-#ifndef _ENV_LOG_H__
-#define _ENV_LOG_H__
+#ifndef _COMMON_LOG_LOG_H__
+#define _COMMON_LOG_LOG_H__
 
 #include <cstdlib>
 #include <iostream>
@@ -10,23 +10,47 @@
 
 class Logger {
  public:
-  Logger() : invoked_(false), code_(-1) {}
-  Logger(int exit_code) : invoked_(false), code_(exit_code) {}
+  Logger()
+      : init_(false), code_(-1), no_op_(false) {
+  }
+
+  Logger(int exit_code)
+    : init_(false), code_(exit_code), no_op_(false) {
+  }
+
+  Logger(int exit_code, bool no_op)
+      : init_(false), code_(exit_code), no_op_(no_op) {
+  }
+
+  Logger(const Logger& other)
+    : init_(other.init_),
+      code_(other.code_),
+      no_op_(other.no_op_) {
+    stream_ << other.stream_.rdbuf();
+  }
+
   ~Logger() {
-    if (invoked_) {
+    if (init_ && !no_op_) {
       Execute();
     }
   }
-  Logger(const Logger& other)
-    : invoked_(other.invoked_),
-      code_(other.code_) {
-    stream_ << other.stream_.rdbuf();
+
+  Logger& Init() {
+    init_ = true; return *this;
   }
 
   template <typename T>
   Logger& operator<<(const T& v) {
-    invoked_ = true;
-    stream_ << v; return *this;
+    if (!no_op_) {
+      Log(v);
+    }
+    return *this;
+  }
+
+  template <typename T>
+  Logger& Log(const T& v) {
+    stream_ << v;
+    return *this;
   }
 
  private:
@@ -37,9 +61,10 @@ class Logger {
     }
   }
 
-  bool invoked_;
+  bool init_;
   std::stringstream stream_;
   int code_;
+  bool no_op_;
 };
 
 enum kLogLevel {
@@ -52,6 +77,25 @@ inline Logger GetLogger(int level) {
   return Logger(level >= 2 ? 1 : 0);
 }
 
-#define LOG(x) return GetLogger(x)
+template <typename T>
+inline Logger CheckEQ(const T&x, const T& y) {
+  if (x != y) {
+    Logger l(GetLogger(FATAL));
+    l.Log(x);
+    l.Log(" != ");
+    l.Log(y);
+    return l;
+  }
+  return Logger(-1, true /* no op */);
+}
 
-#endif  // _ENV_LOG_H__
+#define LOG(x) \
+  GetLogger(x).Init()
+
+#define CHECK(x)                                                        \
+  (x ? Logger(-1, true) : GetLogger(FATAL).Log("CHECK FAILED: ").Log(#x)).Init()
+
+#define CHECK_EQ(x, y) \
+  CheckEQ(x, y).Init()
+
+#endif  // _COMMON_LOG_LOG_H__
