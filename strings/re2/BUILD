@@ -2,7 +2,7 @@
 [
  { "config: {
    "basedir": "."
- }
+ } },
 
  { "cc_library": {
    "name": "re2",
@@ -38,13 +38,14 @@
                    "re2/set.h",
                    "re2/stringpiece.h",
                    "re2/variadic_function.h"
-   ]
-   }
- },
+   ],
+   "cc_compile_args": [ "-pthread", "-Wno-sign-compare" ]
+  }
+},
 
- { "cc_library": {
-     "name": "stringpiece",
-     "dependencies": [ ":re2" ]
-   }
+{ "cc_library": {
+   "name": "stringpiece",
+   "dependencies": [ ":re2" ]
  }
+}
 ]
