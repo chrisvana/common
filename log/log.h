@@ -74,13 +74,14 @@ enum kLogLevel {
 };
 
 inline Logger GetLogger(int level) {
-  return Logger(level >= 2 ? 1 : 0);
+  return Logger(level >= 2 ? 1 : -1);
 }
 
-template <typename T>
-inline Logger CheckEQ(const T&x, const T& y) {
+template <typename T1, typename T2>
+inline Logger CheckEQ(const T1&x, const T2& y) {
   if (x != y) {
     Logger l(GetLogger(FATAL));
+    l.Log("CHECK FAILED: ");
     l.Log(x);
     l.Log(" != ");
     l.Log(y);
