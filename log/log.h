@@ -7,19 +7,20 @@
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
+#include <time.h>
 
 class Logger {
  public:
   Logger()
-      : init_(false), code_(-1), no_op_(false) {
+      : init_(false), code_(-1), no_op_(false), line_(0), file_("") {
   }
 
   Logger(int exit_code)
-    : init_(false), code_(exit_code), no_op_(false) {
+      : init_(false), code_(exit_code), no_op_(false), line_(0), file_("") {
   }
 
   Logger(int exit_code, bool no_op)
-      : init_(false), code_(exit_code), no_op_(no_op) {
+      : init_(false), code_(exit_code), no_op_(no_op), line_(0), file_("") {
   }
 
   Logger(const Logger& other)
@@ -35,7 +36,9 @@ class Logger {
     }
   }
 
-  Logger& Init() {
+  Logger& Init(int line, const char* file) {
+    line_ = line;
+    file_ = file;
     init_ = true; return *this;
   }
 
@@ -55,7 +58,14 @@ class Logger {
 
  private:
   void Execute() {
-    std::cerr << stream_.str() << std::endl;
+    time_t now = time(0);
+    struct tm  tstruct;
+    char buf[80];
+    tstruct = *localtime(&now);
+    strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
+
+    std::cerr << "[" << buf << "] "
+              << file_ << "." << line_ << ": " << stream_.str() << std::endl;
     if (code_ >= 0) {
       exit(code_);
     }
@@ -65,6 +75,8 @@ class Logger {
   std::stringstream stream_;
   int code_;
   bool no_op_;
+  int line_;
+  const char* file_;
 };
 
 enum kLogLevel {
@@ -90,13 +102,12 @@ inline Logger CheckEQ(const T1&x, const T2& y) {
   return Logger(-1, true /* no op */);
 }
 
-#define LOG(x) \
-  GetLogger(x).Init()
+#define LOG(x) GetLogger(x).Init(__LINE__, __FILE__)
 
-#define CHECK(x)                                                        \
-  (x ? Logger(-1, true) : GetLogger(FATAL).Log("CHECK FAILED: ").Log(#x)).Init()
+#define CHECK(x)                                                          \
+  (x ? Logger(-1, true) : GetLogger(FATAL).Log("CHECK FAILED: ").Log(#x)) \
+  .Init(__LINE__, __FILE__)
 
-#define CHECK_EQ(x, y) \
-  CheckEQ(x, y).Init()
+#define CHECK_EQ(x, y) CheckEQ(x, y).Init(__LINE__, __FILE__)
 
 #endif  // _COMMON_LOG_LOG_H__

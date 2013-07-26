@@ -7,7 +7,7 @@
 int main() {
   {  // As x goes out of scope, should exit program.
     Logger x(Logger(0));
-    x.Init();
+    x.Init("", "");
     x << "PASS";
     // should exit.
   }
