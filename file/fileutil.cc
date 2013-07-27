@@ -3,8 +3,8 @@
 
 #include <fstream>
 #include <string>
-#include "file/fileutil.h"
-#include "log/log.h"
+#include "common/file/fileutil.h"
+#include "common/log/log.h"
 
 namespace file {
 
