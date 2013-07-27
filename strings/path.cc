@@ -2,9 +2,9 @@
 // Author: Christopher Van Arsdale
 
 #include <string>
-#include "strings/path.h"
-#include "strings/strutil.h"
-#include "strings/stringpiece.h"
+#include "common/strings/path.h"
+#include "common/strings/strutil.h"
+#include "common/strings/stringpiece.h"
 
 namespace strings {
 

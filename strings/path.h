@@ -2,7 +2,7 @@
 // Author: Christopher Van Arsdale
 
 #include <string>
-#include "strings/stringpiece.h"
+#include "common/strings/stringpiece.h"
 
 namespace strings {
 
