@@ -24,8 +24,6 @@
 #include <iosfwd>
 #include <string>
 
-namespace re2 {
-
 class StringPiece {
  private:
   const char*   ptr_;
@@ -174,9 +172,7 @@ inline bool operator>=(const StringPiece& x, const StringPiece& y) {
   return !(x < y);
 }
 
-}  // namespace re2
-
 // allow StringPiece to be logged
-extern std::ostream& operator<<(std::ostream& o, const re2::StringPiece& piece);
+extern std::ostream& operator<<(std::ostream& o, const StringPiece& piece);
 
 #endif  // STRINGS_STRINGPIECE_H__

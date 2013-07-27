@@ -2,7 +2,7 @@
  { "cc_library": {
      "name" : "stringpiece",
      "cc_headers" : [ "stringpiece.h" ],
-     "dependencies": [ "//strings/re2:stringpiece" ]
+     "dependencies": [ "//common/strings/re2:stringpiece" ]
    }
  },
  { "cc_library": {

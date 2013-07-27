@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "base/init.h"
+#include "common/base/init.h"
 
 namespace {
 void handler(int sig) {

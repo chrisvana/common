@@ -2,10 +2,14 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-#include "re2/stringpiece.h"
-#include "util/util.h"
+#include <string>
+#include <ostream>
 
-using re2::StringPiece;
+#include "common/strings/re2/stringpiece.h"
+
+using std::string;
+using std::min;
+using std::max;
 
 std::ostream& operator<<(std::ostream& o, const StringPiece& piece) {
   o.write(piece.data(), piece.size());

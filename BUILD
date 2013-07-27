@@ -1,5 +1,1 @@
-[
- { "config": {
-   "base_dir": "."
- } }
-]
+// Empty file.
