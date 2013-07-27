@@ -2,8 +2,8 @@
 // Author: Christopher Van Arsdale
 
 #include <iostream>
-#include "log/log.h"
-#include "base/init.h"
+#include "common/log/log.h"
+#include "common/base/init.h"
 
 int main() {
   InitProgram();
