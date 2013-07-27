@@ -1,9 +1,5 @@
-# TODO: Make this cleaner.
+// TODO: Make this cleaner.
 [
- { "config: {
-   "basedir": "."
- } },
-
  { "cc_library": {
    "name": "re2",
    "cc_sources": ["util/arena.cc",

@@ -40,4 +40,17 @@ std::string CleanPath(const StringPiece& input) {
   return (absolute ? "/" : "") + Join(output, "/");
 }
 
+std::string PathDirname(const StringPiece& input) {
+  std::string cleaned = CleanPath(input);
+  StringPiece tmp = cleaned;
+  size_t pos = tmp.rfind('/');
+  if (pos == StringPiece::npos) {
+    return ".";
+  }
+  if (pos == 0) {
+    return "/";
+  }
+  return tmp.substr(0, pos).as_string();
+}
+
 }  // namespace strings

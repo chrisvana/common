@@ -8,5 +8,6 @@ namespace strings {
 
 std::string JoinPath(const StringPiece& a, const StringPiece& b);
 std::string CleanPath(const StringPiece& input);
+std::string PathDirname(const StringPiece& path);
 
 }  // namespace strings

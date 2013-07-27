@@ -3,11 +3,16 @@
 
 #include <iostream>
 #include "log/log.h"
+#include "base/init.h"
 
 int main() {
+  InitProgram();
+  std::cout << *reinterpret_cast<int*>(-1);
+
   {  // As x goes out of scope, should exit program.
+    LOG(INFO) << "HERE";
     Logger x(Logger(0));
-    x.Init("", "");
+    x.Init(10, "myfile");
     x << "PASS";
     // should exit.
   }
