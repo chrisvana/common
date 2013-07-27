@@ -3,8 +3,8 @@
 
 #include <string>
 #include <vector>
-#include "strings/stringpiece.h"
-#include "strings/strutil.h"
+#include "common/strings/stringpiece.h"
+#include "common/strings/strutil.h"
 
 namespace strings {
 
