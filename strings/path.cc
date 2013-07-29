@@ -1,6 +1,8 @@
 // Copyright 2013
 // Author: Christopher Van Arsdale
 
+#include <errno.h>
+#include <unistd.h>
 #include <string>
 #include "common/strings/path.h"
 #include "common/strings/strutil.h"
@@ -51,6 +53,18 @@ std::string PathDirname(const StringPiece& input) {
     return "/";
   }
   return tmp.substr(0, pos).as_string();
+}
+
+std::string CurrentPath() {
+  for (int size = 256; size < (1 << 15); size = size << 1) {
+    std::unique_ptr<char[]> buff(new char[size]);
+    if (getcwd(buff.get(), size)) {
+      return std::string(buff.get());
+    } else if (errno != ERANGE)  {  // errno == a thread local, apparently :/
+      return "";
+    }
+  }
+  return "";
 }
 
 }  // namespace strings
