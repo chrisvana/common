@@ -35,6 +35,9 @@ std::vector<std::string> SplitString(const StringPiece& base,
 std::string Join(std::vector<std::string> strings, const StringPiece& delim);
 std::string Join(std::vector<StringPiece> strings, const StringPiece& delim);
 
+// printf
+std::string StringPrintf(const char *format, ...);
+
 // Implementations -------------------------
 
 inline bool HasPrefix(const StringPiece& base, const StringPiece& prefix) {
