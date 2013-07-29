@@ -9,6 +9,8 @@
 namespace file {
 
 std::string ReadFileToStringOrDie(const std::string& filename);
+void WriteFileOrDie(const std::string& filename,
+                    const std::string& data);
 
 }  // namespace file
 
