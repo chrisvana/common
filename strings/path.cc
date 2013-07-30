@@ -76,4 +76,18 @@ std::string CurrentPath() {
   return "";
 }
 
+int NumPathComponents(const StringPiece& path) {
+  std::string tmp = CleanPath(path);
+  int count = 0;
+  for (StringPiece copy = path; !copy.empty(); ) {
+    ++count;
+    int pos = copy.find('/');
+    if (pos == StringPiece::npos) {
+      break;
+    }
+    copy = copy.substr(pos + 1);
+  }
+  return count;
+}
+
 }  // namespace strings

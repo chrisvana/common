@@ -7,8 +7,8 @@
  },
  { "cc_library": {
      "name" : "strutil",
-     "cc_sources" : [ "strutil.cc", "path.cc" ],
-     "cc_headers" : [ "strutil.h", "path.h" ],
+     "cc_sources" : [ "strutil.cc", "path.cc", "varmap.cc" ],
+     "cc_headers" : [ "strutil.h", "path.h", "varmap.h" ],
      "dependencies": [ ":stringpiece" ]
    }
  }

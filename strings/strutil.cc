@@ -1,5 +1,7 @@
 // Copyright 2013
 // Author: Christopher Van Arsdale
+//
+// TODO: These functions are in no way efficient.
 
 #include <cstdio>
 #include <string>
@@ -90,6 +92,43 @@ std::string StringPrintf(const char *format, ...) {
     va_end(args);
   }
 
+  return out;
+}
+
+std::string Replace(const StringPiece& input,
+                    const StringPiece& original,
+                    const StringPiece& replace) {
+  if (original.empty()) {
+    return input.as_string();
+  }
+
+  int pos = input.find(original);
+  if (pos == StringPiece::npos) {
+    return input.as_string();
+  }
+  return (input.substr(0, pos).as_string() +
+          replace.as_string() +
+          input.substr(pos + original.size()).as_string());
+}
+
+std::string ReplaceAll(const StringPiece& input,
+                       const StringPiece& original,
+                       const StringPiece& replace) {
+  if (original.empty()) {
+    return input.as_string();
+  }
+
+  std::string out;
+  for (StringPiece current = input; !current.empty(); ) {
+    int pos = current.find(original);
+    if (pos == StringPiece::npos) {
+      out += current.as_string();
+      break;
+    }
+    out.append(current.substr(0, pos).as_string());
+    out.append(replace.as_string());
+    current = current.substr(pos + original.size());
+  }
   return out;
 }
 

@@ -38,6 +38,14 @@ std::string Join(std::vector<StringPiece> strings, const StringPiece& delim);
 // printf
 std::string StringPrintf(const char *format, ...);
 
+// Replace
+std::string Replace(const StringPiece& input,
+                    const StringPiece& original,
+                    const StringPiece& replace);
+std::string ReplaceAll(const StringPiece& input,
+                       const StringPiece& original,
+                       const StringPiece& replace);
+
 // Implementations -------------------------
 
 inline bool HasPrefix(const StringPiece& base, const StringPiece& prefix) {

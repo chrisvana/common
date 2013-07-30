@@ -14,6 +14,7 @@ std::string CleanPath(const StringPiece& input);
 std::string PathDirname(const StringPiece& path);
 std::string PathBasename(const StringPiece& path);
 std::string CurrentPath();
+int NumPathComponents(const StringPiece& path);
 
 }  // namespace strings
 
