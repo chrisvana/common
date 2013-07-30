@@ -1,7 +1,7 @@
 // Empty file.
 [
 { "config" : {
-    "component_src": "common"
+    "component": "common"
   }
 }
 ]
