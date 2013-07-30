@@ -55,6 +55,16 @@ std::string PathDirname(const StringPiece& input) {
   return tmp.substr(0, pos).as_string();
 }
 
+std::string PathBasename(const StringPiece& input) {
+  std::string cleaned = CleanPath(input);
+  StringPiece tmp = cleaned;
+  size_t pos = tmp.rfind('/');
+  if (pos == StringPiece::npos) {
+    return cleaned;
+  }
+  return tmp.substr(pos + 1).as_string();
+}
+
 std::string CurrentPath() {
   for (int size = 256; size < (1 << 15); size = size << 1) {
     std::unique_ptr<char[]> buff(new char[size]);
