@@ -86,7 +86,6 @@ std::string StringPrintf(const char *format, ...) {
   {  // Write the data.
     va_list args;
     va_start(args, format);
-    char buffer[1];
     vsnprintf(&out[0], out.size(), format, args);
     va_end(args);
   }

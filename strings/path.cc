@@ -21,7 +21,6 @@ std::string CleanPath(const StringPiece& input) {
   bool absolute = HasPrefix(input, "/");
   std::vector<StringPiece> pieces = Split(input, "/");
   std::vector<StringPiece> output;
-  int num_deep = 0;
   for (int i = 0; i < pieces.size(); ++i) {
     if (pieces[i] == ".") {
       continue;
