@@ -1,6 +1,9 @@
 // Copyright 2013
 // Author: Christopher Van Arsdale
 
+#ifndef _COMMON_STRINGS_PATH_H__
+#define _COMMON_STRINGS_PATH_H__
+
 #include <string>
 #include "common/strings/stringpiece.h"
 
@@ -13,3 +16,5 @@ std::string PathBasename(const StringPiece& path);
 std::string CurrentPath();
 
 }  // namespace strings
+
+#endif  // _COMMON_STRINGS_PATH_H__
