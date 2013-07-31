@@ -2,8 +2,8 @@
 // Author: Christopher Van Arsdale
 
 #include <string>
-#include "log/log.h"
-#include "strings/strutil.h"
+#include "common/log/log.h"
+#include "common/strings/strutil.h"
 
 int main() {
   // HasPrefix
@@ -25,6 +25,10 @@ int main() {
   CHECK_EQ("foo,bar,baz", strings::Join(splits, ","));
   CHECK_EQ("foobarbaz", strings::Join(splits, ""));
   CHECK_EQ("", strings::Join(std::vector<std::string>(), ","));
+
+  // Replace
+  CHECK_EQ("foo/bar:baz", strings::Replace("foo:bar:baz", ":", "/"));
+  CHECK_EQ("foo/bar/baz", strings::ReplaceAll("foo:bar:baz", ":", "/"));
 
   std::cout << "PASS" << std::endl;
   return 0;
