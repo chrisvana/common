@@ -30,6 +30,12 @@ int main() {
   CHECK_EQ("foo/bar:baz", strings::Replace("foo:bar:baz", ":", "/"));
   CHECK_EQ("foo/bar/baz", strings::ReplaceAll("foo:bar:baz", ":", "/"));
 
+  // Printf
+  CHECK_EQ("foo_123", strings::StringPrintf("foo_%d", 123))
+      << " " << std::string("foo_123").size()
+      << " VS "
+      << strings::StringPrintf("foo_%d", 123).size();
+
   std::cout << "PASS" << std::endl;
   return 0;
 }

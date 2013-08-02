@@ -37,6 +37,8 @@ std::string Join(std::vector<StringPiece> strings, const StringPiece& delim);
 
 // printf
 std::string StringPrintf(const char *format, ...);
+void SStringPrintf(std::string* dst, const char* format, ...);
+void StringAppendF(std::string* dst, const char* format, ...);
 
 // Replace
 std::string Replace(const StringPiece& input,
