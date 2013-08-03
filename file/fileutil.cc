@@ -33,7 +33,7 @@ void WriteFileOrDie(const std::string& filename,
 
 namespace {
 int glob_err(const char* epath, int errono) {
-  LOG(ERROR) << "Glob error: " << epath << ": " << strerror(errono);
+  // LOG(ERROR) << "Glob error: " << epath << ": " << strerror(errono);
   return 0;
 }
 }  // namespace
