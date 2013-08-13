@@ -1,8 +1,15 @@
  [
  { "cc_library": {
+     "name" : "flags",
+     "cc_sources": [ "flags.cc" ],
+     "cc_headers" : [ "flags.h" ]
+   }
+ },
+ { "cc_library": {
      "name" : "init",
      "cc_sources": [ "init.cc" ],
-     "cc_headers" : [ "init.h" ]
+     "cc_headers" : [ "init.h" ],
+     "dependencies": [ ":flags" ]
    }
  },
  { "cc_library": {
@@ -28,7 +35,8 @@
  },
  { "cc_library": {
      "name" : "base",
-     "dependencies": [ ":init",
+     "dependencies": [ ":flags",
+                       ":init",
                        ":macros",
                        ":mutex",
                        ":time",
