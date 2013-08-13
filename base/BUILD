@@ -8,7 +8,7 @@
  { "cc_library": {
      "name" : "time",
      "cc_sources" : [ "time.cc" ],
-     "cc_headers" : [ "time.h" ]
+     "cc_headers" : [ "time.h", "rdtsc.h" ]
    }
  },
  { "cc_library": {

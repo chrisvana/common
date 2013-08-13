@@ -4,35 +4,51 @@
 #ifndef _COMMON_BASE_TIME_H__
 #define _COMMON_BASE_TIME_H__
 
+#include "common/base/rdtsc.h"
 #include "common/base/types.h"
-
-namespace time {
 
 void SleepForSeconds(double seconds);
 int64 GetCurrentTimeMicros();
 
-// TODO(cvanarsdale): Cycle timer (platform specific).
-class Timer {
+// TODO(cvanarsdale): Work in progress. We could calibrate the clock cycles
+// instead of doing two different timers in one. Maybe not better.
+class CycleTimer {
  public:
-  Timer() : running_(false), start_(0), end_(0) {}
-  ~Timer() {}
+  CycleTimer()
+      : running_(false), start_(0), end_(0), start_ts_(0), end_ts_(0) {
+  }
+  ~CycleTimer() {}
 
   // Start/stop
-  void Start() { running_ = true; start_ = GetCurrentTimeMicros(); }
-  void Stop() { end_ = GetCurrentTimeMicros(); running_ = false; }
+  void Start() {
+    running_ = true;
+    start_ts_ = GetCurrentTimeMicros();
+    start_ = rdtsc();
+  }
+  void Stop() {
+    end_ = rdtsc();
+    end_ts_ = GetCurrentTimeMicros();
+    running_ = false;
+  }
 
   // Time functions.
-  int64 GetMicros() const {
-    return (running_ ? GetCurrentTimeMicros() : end_) - start;
+  int64 Get() const {
+    return (running_ ? rdtsc() : end_) - start_;
   }
-  double GetMillis() const { return GetMicros() / 1000; }
-  double GetSeconds() const {  return GetMicros() / 1000 / 1000; }
+  int64 GetMicros() const {
+    return (running_ ? GetCurrentTimeMicros() : end_ts_) - start_ts_;
+  }
+  double GetMillis() const {
+    return static_cast<double>(GetMicros()) / 1000;
+  }
+  double GetSeconds() const {
+    return static_cast<double>(GetMicros()) / 1000000;
+  }
 
  private:
   bool running_;
-  int64 start_, end_;
+  uint64 start_, end_;  // cycles
+  uint64 start_ts_, end_ts_;  // micros
 };
-
-}  // namespace time
 
 #endif  // _COMMON_BASE_TIME_H__

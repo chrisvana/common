@@ -12,7 +12,7 @@
 
 #ifdef __i386__
 
-uint64 rdtsc() {
+static uint64 rdtsc() {
   uint64 x;
   __asm__ volatile (".byte 0x0f, 0x31" : "=A" (x));
   return x;
@@ -20,7 +20,7 @@ uint64 rdtsc() {
 
 #elif defined(__x86_64__)
 
-uint64 rdtsc() {
+static uint64 rdtsc() {
   uint32 hi, lo;
   __asm__ __volatile__ ("rdtsc" : "=a"(lo), "=d"(hi));
   return (static_cast<uint64>(hi) << 32) | lo;
@@ -28,7 +28,7 @@ uint64 rdtsc() {
 
 #elif defined(__powerpc__)
 
-uint64 rdtsc(void) {
+static uint64 rdtsc(void) {
   uint32 upper, lower, tmp;
   __asm__ volatile(
       "0:                  \n"

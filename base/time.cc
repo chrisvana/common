@@ -5,8 +5,6 @@
 #include <sys/time.h>
 #include "common/base/time.h"
 
-namespace time {
-
 void SleepForSeconds(double seconds) {
   if (seconds <= 0) {
     return;
@@ -25,5 +23,3 @@ int64 GetCurrentTimeMicros() {
   gettimeofday(&t, NULL);
   return static_cast<int64>(t.tv_sec * 1000000 + t.tv_usec);
 }
-
-}  // namespace time
