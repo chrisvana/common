@@ -1,0 +1,13 @@
+The Google Concurrency Library (GCL) is an attempt to export several
+internal C++ Google concurrency libraries in a form that the C++
+standard committee may accept for TR2.
+
+
+cd to the directory into which you've checked out the Google
+Concurrency Library, and run:
+
+  $ make
+  $ make test
+
+
+`make clean` will take you back to a pristine checkout.

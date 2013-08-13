@@ -6,6 +6,11 @@
    }
  },
  { "cc_library": {
+     "name" : "mutex",
+     "cc_headers" : [ "mutex.h" ]
+   }
+ },
+ { "cc_library": {
      "name" : "time",
      "cc_sources" : [ "time.cc" ],
      "cc_headers" : [ "time.h", "rdtsc.h" ]
@@ -18,7 +23,7 @@
  },
  { "cc_library": {
      "name" : "base",
-     "dependencies": [ ":init", ":time", ":types" ]
+     "dependencies": [ ":init", ":mutex", ":time", ":types" ]
    }
  }
 ]
