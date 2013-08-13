@@ -6,6 +6,11 @@
    }
  },
  { "cc_library": {
+     "name" : "macros",
+     "cc_headers" : [ "macros.h" ]
+   }
+ },
+ { "cc_library": {
      "name" : "mutex",
      "cc_headers" : [ "mutex.h" ]
    }
@@ -23,7 +28,11 @@
  },
  { "cc_library": {
      "name" : "base",
-     "dependencies": [ ":init", ":mutex", ":time", ":types" ]
+     "dependencies": [ ":init",
+                       ":macros",
+                       ":mutex",
+                       ":time",
+                       ":types" ]
    }
  }
 ]
