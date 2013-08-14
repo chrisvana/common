@@ -47,7 +47,6 @@ std::vector<std::string> SplitString(const StringPiece& base,
   return out;
 }
 
-
 // Join
 std::string Join(std::vector<std::string> strings, const StringPiece& delim) {
   if (strings.empty()) {

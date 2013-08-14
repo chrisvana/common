@@ -80,7 +80,7 @@
 
 #include <string>
 #include <vector>
-#include <gflags/gflags_declare.h>    // IWYU pragma: export
+#include "gflags/gflags_declare.h"    // IWYU pragma: export
 namespace google {
 
 //

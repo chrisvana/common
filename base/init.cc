@@ -10,6 +10,7 @@
 #include <unistd.h>
 
 #include "common/base/init.h"
+#include "common/base/flags.h"
 
 namespace {
 void handler(int sig) {
@@ -28,4 +29,9 @@ void handler(int sig) {
 
 void InitProgram() {
   signal(SIGSEGV, handler);
+}
+
+void InitProgram(int *argc, char*** argv, bool remove_flags) {
+  InitProgram();
+  google::ParseCommandLineFlags(argc, argv, remove_flags);
 }

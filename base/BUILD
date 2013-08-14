@@ -1,8 +1,8 @@
  [
  { "cc_library": {
      "name" : "flags",
-     "cc_sources": [ "flags.cc" ],
-     "cc_headers" : [ "flags.h" ]
+     "cc_headers" : [ "flags.h" ],
+     "dependencies": [ "//common/third_party/google/gflags:gflags" ]
    }
  },
  { "cc_library": {
