@@ -1,7 +1,8 @@
 // Copyright 2002 The RE2 Authors.  All Rights Reserved.
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// license that can beunused-but-set-variable found in the LICENSE file.
 
+#include <stdarg.h>
 #include <string>
 
 namespace strings {

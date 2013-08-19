@@ -3,6 +3,7 @@
 
 #include <errno.h>
 #include <unistd.h>
+#include <memory>
 #include <string>
 #include "common/strings/path.h"
 #include "common/strings/strutil.h"
