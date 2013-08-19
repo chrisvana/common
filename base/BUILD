@@ -9,7 +9,8 @@
      "name" : "init",
      "cc_sources": [ "init.cc" ],
      "cc_headers" : [ "init.h" ],
-     "dependencies": [ ":flags" ]
+     "dependencies": [ "//common/third_party/google/init:init",
+                       ":flags" ]
    }
  },
  { "cc_library": {
@@ -42,5 +43,11 @@
                        ":time",
                        ":types" ]
    }
- }
+ },
+ { "cc_library": {
+    "name": "tcmalloc_perf",
+    "dependencies": [
+         "//common/third_party/google/gperftools:libtcmalloc_and_profiler"
+    ]
+ } }
 ]
