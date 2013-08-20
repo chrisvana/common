@@ -38,6 +38,10 @@
 #include "sampler.h"           // for Sampler
 #include "base/googleinit.h"
 
+#if defined(HAVE_FORK) && defined(HAVE_PTHREAD)
+#include <pthread.h>
+#endif
+
 namespace tcmalloc {
 
 #if defined(HAVE_FORK) && defined(HAVE_PTHREAD)

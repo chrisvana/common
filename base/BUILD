@@ -9,7 +9,8 @@
      "name" : "init",
      "cc_sources": [ "init.cc" ],
      "cc_headers" : [ "init.h" ],
-     "dependencies": [ "//common/third_party/google/init:init",
+     "dependencies": [ "//common/log:log",
+                       "//common/third_party/google/init:init",
                        ":flags" ]
    }
  },
