@@ -86,7 +86,7 @@
 /* #undef PTHREAD_CREATE_JOINABLE */
 
 /* Define to 1 if you have the ANSI C header files. */
-#define STDC_HEADERS 1
+/* #undef STDC_HEADERS */
 
 /* the namespace where STL code like vector<> is defined */
 #define STL_NAMESPACE std
