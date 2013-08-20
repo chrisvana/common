@@ -9,7 +9,7 @@
                      "src/gflags_nc.cc",
                      "src/gflags_reporting.cc"
      ],
-     "cc_compile_args": [ "-Wno-error=unused-local-typedefs" ],
+// TODO     "cc_compile_args": [ "-Wno-error=unused-local-typedefs" ],
      "header_compile_args": [ "-Icommon/third_party/google/gflags/src" ]
 } }
 ]

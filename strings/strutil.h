@@ -4,6 +4,7 @@
 #ifndef _COMMON_STRINGS_STRUTIL_H__
 #define _COMMON_STRINGS_STRUTIL_H__
 
+#include <sstream>
 #include <string>
 #include <vector>
 #include "common/strings/stringpiece.h"
@@ -32,8 +33,19 @@ std::vector<std::string> SplitString(const StringPiece& base,
                                      bool allow_empty);
 
 // Join
-std::string Join(std::vector<std::string> strings, const StringPiece& delim);
-std::string Join(std::vector<StringPiece> strings, const StringPiece& delim);
+template <class T>
+std::string Join(const T& t, const StringPiece& delim) {
+  std::stringstream out;
+  bool first = true;
+  for (const auto& it : t) {
+    if (!first) {
+      out << delim;
+    }
+    first = false;
+    out << it;
+  }
+  return out.str();
+}
 
 // printf
 std::string StringPrintf(const char *format, ...);

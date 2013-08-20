@@ -8,6 +8,11 @@
 #include "common/base/flags.h"
 #include "common/log/log.h"
 
+void InitProgram() {
+  google::InstallFailureSignalHandler();
+  google::InitGoogleLogging("");
+}
+
 void InitProgram(int *argc, char*** argv, bool remove_flags) {
   google::InstallFailureSignalHandler();
   google::ParseCommandLineFlags(argc, argv, remove_flags);
