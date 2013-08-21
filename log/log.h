@@ -7,6 +7,10 @@
 #include "common/third_party/google/glog/src/glog/logging.h"
 #include "common/third_party/google/glog/src/glog/raw_logging.h"
 
+#ifndef LG
+#define LG LOG(INFO)
+#endif
+
 // Some of the definitions:
 //
 // LOG(*) << ..., * = INFO, ERROR, WARNING, FATAL, DFATAL
