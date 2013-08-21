@@ -34,18 +34,12 @@ std::vector<std::string> SplitString(const StringPiece& base,
 
 // Join
 template <class T>
-std::string Join(const T& t, const StringPiece& delim) {
-  std::stringstream out;
-  bool first = true;
-  for (const auto& it : t) {
-    if (!first) {
-      out << delim;
-    }
-    first = false;
-    out << it;
-  }
-  return out.str();
-}
+std::string Join(const T& t, const StringPiece& delim);
+
+template <typename Arg1, typename... T>
+std::string JoinWith(const StringPiece& delim,
+                     const Arg1& arg1,
+                     const T&... args);
 
 // printf
 std::string StringPrintf(const char *format, ...);
@@ -91,6 +85,60 @@ inline std::vector<std::string> SplitStringAllowEmpty(
   return SplitString(base, delim, true);
 }
 
+// JoinWith actual work:
+template <typename T>
+inline void JoinWithSingle(const T& t,
+                           std::stringstream* out,
+                           const StringPiece& delim) {
+  std::stringstream tmp;
+  tmp << t;
+  if (!tmp.str().empty()) {
+    if (!out->str().empty()) {
+      *out << delim;
+    }
+    *out << tmp.str();
+  }
+}
+
+template <class T>
+inline std::string Join(const T& t, const StringPiece& delim) {
+  std::stringstream out;
+  for (const auto& it : t) {
+    JoinWithSingle(it, &out, delim);
+  }
+  return out.str();
+}
+
+// Termination of expansion:
+template <typename Arg1>
+inline void JoinWithRecurse(std::stringstream* out,
+                            const StringPiece& delim,
+                            const Arg1& arg1) {
+  JoinWithSingle(arg1, out, delim);
+}
+
+// Recursive expansion:
+template <typename Arg1, typename... T>
+inline void JoinWithRecurse(std::stringstream* out,
+                            const StringPiece& delim,
+                            const Arg1& arg1,
+                            T&&... args) {
+  JoinWithSingle(arg1, out, delim);
+  JoinWithRecurse(out, delim, args...);
+}
+
+// JoinWith entry point.
+template <typename Arg1, typename... T>
+inline std::string JoinWith(const StringPiece& delim,
+                            const Arg1& arg1,
+                            const T&... args) {
+  std::stringstream out;
+  JoinWithRecurse(&out, delim, arg1, args...);
+  return out.str();
+}
+
+
 }  // namespace strings
+
 
 #endif  // _STRINGS_STRUTIL_H__

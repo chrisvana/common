@@ -48,29 +48,7 @@ std::vector<std::string> SplitString(const StringPiece& base,
 }
 
 // Join
-std::string Join(std::vector<std::string> strings, const StringPiece& delim) {
-  if (strings.empty()) {
-    return "";
-  }
-  std::string out = strings[0];
-  for (int i = 1; i < strings.size(); ++i) {
-    out.append(delim.as_string());
-    out.append(strings[i]);
-  }
-  return out;
-}
 
-std::string Join(std::vector<StringPiece> strings, const StringPiece& delim) {
-  if (strings.empty()) {
-    return "";
-  }
-  std::string out = strings[0].as_string();
-  for (int i = 1; i < strings.size(); ++i) {
-    out.append(delim.as_string());
-    out.append(strings[i].as_string());
-  }
-  return out;
-}
 
 std::string Replace(const StringPiece& input,
                     const StringPiece& original,
