@@ -47,8 +47,14 @@ std::vector<std::string> SplitString(const StringPiece& base,
   return out;
 }
 
-// Join
-
+std::string Repeat(const StringPiece& input, int n_times) {
+  std::string out;
+  out.reserve(input.size() * n_times);
+  for (int i = 0; i < n_times; ++i) {
+    out.append(input.as_string());
+  }
+  return out;
+}
 
 std::string Replace(const StringPiece& input,
                     const StringPiece& original,

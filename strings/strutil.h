@@ -32,16 +32,26 @@ std::vector<std::string> SplitString(const StringPiece& base,
                                      const StringPiece& delim,
                                      bool allow_empty);
 
+// Repeat
+std::string Repeat(const StringPiece& input, int n_times);
+
 // Join
-template <class T>
+template <typename T>
 std::string Join(const T& t, const StringPiece& delim);
 
 template <typename Arg1, typename... T>
-std::string JoinWith(const StringPiece& delim,
-                     const Arg1& arg1,
-                     const T&... args);
+std::string JoinAllWith(const StringPiece& delim,
+                             const Arg1& arg1,
+                             const T&... args);
+
+template <typename Arg1, typename... T>
+std::string JoinAll(const Arg1& arg1, const T&... args) {
+  return JoinAllWith("", arg1, args...);
+}
 
 // printf
+template <typename T>
+std::string StringPrint(const T& t);
 std::string StringPrintf(const char *format, ...);
 void SStringPrintf(std::string* dst, const char* format, ...);
 void StringAppendF(std::string* dst, const char* format, ...);
@@ -85,55 +95,61 @@ inline std::vector<std::string> SplitStringAllowEmpty(
   return SplitString(base, delim, true);
 }
 
-// JoinWith actual work:
 template <typename T>
-inline void JoinWithSingle(const T& t,
-                           std::stringstream* out,
-                           const StringPiece& delim) {
+inline std::string StringPrint(const T& t) {
   std::stringstream tmp;
   tmp << t;
-  if (!tmp.str().empty()) {
+  return tmp.str();
+}
+
+// JoinAllWith actual work:
+template <typename T>
+inline void JoinAllWithSingle(const T& t,
+                           std::stringstream* out,
+                           const StringPiece& delim) {
+  std::string tmp = StringPrint(t);
+  if (!tmp.empty()) {
     if (!out->str().empty()) {
       *out << delim;
     }
-    *out << tmp.str();
+    *out << tmp;
   }
 }
 
-template <class T>
+template <typename T>
 inline std::string Join(const T& t, const StringPiece& delim) {
   std::stringstream out;
   for (const auto& it : t) {
-    JoinWithSingle(it, &out, delim);
+    JoinAllWithSingle(it, &out, delim);
   }
   return out.str();
 }
 
 // Termination of expansion:
 template <typename Arg1>
-inline void JoinWithRecurse(std::stringstream* out,
+inline void JoinAllWithRecurse(std::stringstream* out,
                             const StringPiece& delim,
                             const Arg1& arg1) {
-  JoinWithSingle(arg1, out, delim);
+  JoinAllWithSingle(arg1, out, delim);
 }
 
 // Recursive expansion:
 template <typename Arg1, typename... T>
-inline void JoinWithRecurse(std::stringstream* out,
+inline void JoinAllWithRecurse(std::stringstream* out,
                             const StringPiece& delim,
                             const Arg1& arg1,
                             T&&... args) {
-  JoinWithSingle(arg1, out, delim);
-  JoinWithRecurse(out, delim, args...);
+  JoinAllWithSingle(arg1, out, delim);
+  JoinAllWithRecurse(out, delim, args...);
 }
 
-// JoinWith entry point.
+// JoinAllWith entry point.
 template <typename Arg1, typename... T>
-inline std::string JoinWith(const StringPiece& delim,
-                            const Arg1& arg1,
-                            const T&... args) {
+inline std::string JoinAllWith(const StringPiece& delim,
+                               const Arg1& arg1,
+                               const T&... args) {
   std::stringstream out;
-  JoinWithRecurse(&out, delim, arg1, args...);
+  JoinAllWithRecurse(&out, delim, arg1, args...);
   return out.str();
 }
 

@@ -2,10 +2,13 @@
 // Author: Christopher Van Arsdale
 
 #include <string>
-#include "log/log.h"
-#include "strings/path.h"
+#include "common/base/init.h"
+#include "common/log/log.h"
+#include "common/strings/path.h"
 
-int main() {
+int main(int argc, char** argv) {
+  InitProgram(&argc, &argv, true);
+
   // JoinPath
   CHECK_EQ("/this/is/a/path", strings::JoinPath("/this/is/a", "path"));
 

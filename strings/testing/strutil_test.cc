@@ -2,10 +2,14 @@
 // Author: Christopher Van Arsdale
 
 #include <string>
+#include <iostream>
+#include "common/base/init.h"
 #include "common/log/log.h"
 #include "common/strings/strutil.h"
 
-int main() {
+int main(int argc, char** argv) {
+  InitProgram(&argc, &argv, true);
+
   // HasPrefix
   CHECK(strings::HasPrefix("This is a block", "This"));
   CHECK(!strings::HasPrefix("This", "This is a block"));
@@ -20,6 +24,10 @@ int main() {
   CHECK_EQ("foo", splits[0]);
   CHECK_EQ("bar", splits[1]);
   CHECK_EQ("baz", splits[2]);
+
+  // Repeat
+  CHECK_EQ("asdf_asdf_asdf_", strings::Repeat("asdf_", 3));
+  CHECK_EQ("", strings::Repeat("asdf_", 0));
 
   // Join
   CHECK_EQ("foo,bar,baz", strings::Join(splits, ","));
