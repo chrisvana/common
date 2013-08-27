@@ -30,9 +30,9 @@ int main(int argc, char** argv) {
   CHECK_EQ("", strings::Repeat("asdf_", 0));
 
   // Join
-  CHECK_EQ("foo,bar,baz", strings::Join(splits, ","));
-  CHECK_EQ("foobarbaz", strings::Join(splits, ""));
-  CHECK_EQ("", strings::Join(std::vector<std::string>(), ","));
+  CHECK_EQ("foo,bar,baz", strings::JoinAll(splits, ","));
+  CHECK_EQ("foobarbaz", strings::JoinAll(splits, ""));
+  CHECK_EQ("", strings::JoinAll(std::vector<std::string>(), ","));
 
   // Replace
   CHECK_EQ("foo/bar:baz", strings::Replace("foo:bar:baz", ":", "/"));

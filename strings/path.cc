@@ -39,7 +39,7 @@ std::string CleanPath(const StringPiece& input) {
   if (output.empty()) {
     return absolute ? "/" : ".";
   }
-  return (absolute ? "/" : "") + Join(output, "/");
+  return (absolute ? "/" : "") + JoinAll(output, "/");
 }
 
 std::string PathDirname(const StringPiece& input) {

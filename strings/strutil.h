@@ -37,16 +37,16 @@ std::string Repeat(const StringPiece& input, int n_times);
 
 // Join
 template <typename T>
-std::string Join(const T& t, const StringPiece& delim);
+std::string JoinAll(const T& t, const StringPiece& delim);
 
 template <typename Arg1, typename... T>
-std::string JoinAllWith(const StringPiece& delim,
-                             const Arg1& arg1,
-                             const T&... args);
+std::string JoinWith(const StringPiece& delim,
+                     const Arg1& arg1,
+                     const T&... args);
 
 template <typename Arg1, typename... T>
-std::string JoinAll(const Arg1& arg1, const T&... args) {
-  return JoinAllWith("", arg1, args...);
+std::string Join(const Arg1& arg1, const T&... args) {
+  return JoinWith("", arg1, args...);
 }
 
 // printf
@@ -102,9 +102,9 @@ inline std::string StringPrint(const T& t) {
   return tmp.str();
 }
 
-// JoinAllWith actual work:
+// JoinWith actual work:
 template <typename T>
-inline void JoinAllWithSingle(const T& t,
+inline void JoinWithSingle(const T& t,
                            std::stringstream* out,
                            const StringPiece& delim) {
   std::string tmp = StringPrint(t);
@@ -117,39 +117,39 @@ inline void JoinAllWithSingle(const T& t,
 }
 
 template <typename T>
-inline std::string Join(const T& t, const StringPiece& delim) {
+inline std::string JoinAll(const T& t, const StringPiece& delim) {
   std::stringstream out;
   for (const auto& it : t) {
-    JoinAllWithSingle(it, &out, delim);
+    JoinWithSingle(it, &out, delim);
   }
   return out.str();
 }
 
 // Termination of expansion:
 template <typename Arg1>
-inline void JoinAllWithRecurse(std::stringstream* out,
+inline void JoinWithRecurse(std::stringstream* out,
                             const StringPiece& delim,
                             const Arg1& arg1) {
-  JoinAllWithSingle(arg1, out, delim);
+  JoinWithSingle(arg1, out, delim);
 }
 
 // Recursive expansion:
 template <typename Arg1, typename... T>
-inline void JoinAllWithRecurse(std::stringstream* out,
+inline void JoinWithRecurse(std::stringstream* out,
                             const StringPiece& delim,
                             const Arg1& arg1,
                             T&&... args) {
-  JoinAllWithSingle(arg1, out, delim);
-  JoinAllWithRecurse(out, delim, args...);
+  JoinWithSingle(arg1, out, delim);
+  JoinWithRecurse(out, delim, args...);
 }
 
-// JoinAllWith entry point.
+// JoinWith entry point.
 template <typename Arg1, typename... T>
-inline std::string JoinAllWith(const StringPiece& delim,
-                               const Arg1& arg1,
-                               const T&... args) {
+inline std::string JoinWith(const StringPiece& delim,
+                            const Arg1& arg1,
+                            const T&... args) {
   std::stringstream out;
-  JoinAllWithRecurse(&out, delim, arg1, args...);
+  JoinWithRecurse(&out, delim, arg1, args...);
   return out.str();
 }
 
