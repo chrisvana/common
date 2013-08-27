@@ -3,14 +3,18 @@
      "name" : "strutil_test",
      "cc_sources": [ "strutil_test.cc" ],
      "dependencies": [ "//common/base:base",
-                       "//common/strings:strutil" ]
+                       "//common/strings:strutil",
+                       "//common/test:test_main" ]
    }
  },
+
  { "cc_binary": {
      "name" : "path_test",
      "cc_sources": [ "path_test.cc" ],
      "dependencies": [ "//common/base:base",
-                       "//common/strings:strutil" ]
+                       "//common/strings:strutil",
+                       "//common/test:test_main"
+     ]
    }
  }
 ]
