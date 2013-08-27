@@ -1,7 +1,6 @@
 [
-{ "gen_sh": {
+{ "autoconf": {
     "name": "perf_gen",
-    "build_cmd": "DEST_DIR=$(pwd)/$GEN_DIR; CXXFLAGS=\"$BASIC_CXXFLAGS\" CFLAGS=\"$BASIC_CFLAGS\" LDFLAGS=\"$LDFLAGS\" CC=\"$CC\" CXX=\"$CXX\" ./configure --prefix=/ --cache-file=$GEN_DIR/config.cache && make install DESTDIR=$(pwd)/$GEN_DIR",
     "outs": [ "lib/libprofiler.a",
               "lib/libtcmalloc_and_profiler.a",
               "lib/libtcmalloc_minimal.a",

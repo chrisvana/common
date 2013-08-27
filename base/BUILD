@@ -36,7 +36,7 @@
    }
  },
  { "cc_library": {
-     "name" : "base",
+     "name" : "base_nomalloc",
      "dependencies": [ ":flags",
                        ":init",
                        ":macros",
@@ -50,5 +50,10 @@
     "dependencies": [
          "//common/third_party/google/gperftools:libtcmalloc_and_profiler"
     ]
- } }
+ } },
+ { "cc_library": {
+     "name" : "base",
+     "dependencies": [ ":base_nomalloc", ":tcmalloc_perf" ]
+   }
+ }
 ]

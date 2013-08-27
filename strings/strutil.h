@@ -39,6 +39,9 @@ std::string Repeat(const StringPiece& input, int n_times);
 template <typename T>
 std::string JoinAll(const T& t, const StringPiece& delim);
 
+#if defined(USE_CXX0X) || defined(__GXX_EXPERIMENTAL_CXX0X__)
+#define _COMMON_STRINGS_STRUTIL_VARIADIC_TEMPLATE_
+
 template <typename Arg1, typename... T>
 std::string JoinWith(const StringPiece& delim,
                      const Arg1& arg1,
@@ -48,6 +51,7 @@ template <typename Arg1, typename... T>
 std::string Join(const Arg1& arg1, const T&... args) {
   return JoinWith("", arg1, args...);
 }
+#endif
 
 // printf
 template <typename T>
@@ -125,6 +129,8 @@ inline std::string JoinAll(const T& t, const StringPiece& delim) {
   return out.str();
 }
 
+#ifdef _COMMON_STRINGS_STRUTIL_VARIADIC_TEMPLATE_
+
 // Termination of expansion:
 template <typename Arg1>
 inline void JoinWithRecurse(std::stringstream* out,
@@ -132,6 +138,7 @@ inline void JoinWithRecurse(std::stringstream* out,
                             const Arg1& arg1) {
   JoinWithSingle(arg1, out, delim);
 }
+
 
 // Recursive expansion:
 template <typename Arg1, typename... T>
@@ -153,6 +160,7 @@ inline std::string JoinWith(const StringPiece& delim,
   return out.str();
 }
 
+#endif
 
 }  // namespace strings
 
