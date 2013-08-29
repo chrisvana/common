@@ -806,6 +806,8 @@ enable_libtool_lock
 enable_frame_pointers
 enable_rtti
 with_gflags
+with_gflagssrc
+with_gflagslib
 enable_namespace
 '
       ac_precious_vars='build_alias
@@ -1463,6 +1465,8 @@ Optional Packages:
   --with-sysroot=DIR Search for dependent libraries within DIR
                         (or the compiler's sysroot if not specified).
                           --with-gflags=GFLAGS_DIR
+                          --with-gflagssrc=GFLAGS_DIR
+                          --with-gflagslib=GFLAGS_DIR
 
 Some influential environment variables:
   CC          C compiler command
@@ -16603,9 +16607,10 @@ fi
 
 fi
 
-# Check if there is google-gflags library installed.
+# Check if there is google-gflags library installed. ========================
 SAVE_CFLAGS="$CFLAGS"
 SAVE_LIBS="$LIBS"
+
 
 # Check whether --with-gflags was given.
 if test "${with_gflags+set}" = set; then :
@@ -16663,8 +16668,30 @@ else
   GFLAGS_CFLAGS=
   GFLAGS_LIBS=
 fi
+
+# User override of gflags-src and gflags-lib
+
+# Check whether --with-gflagssrc was given.
+if test "${with_gflagssrc+set}" = set; then :
+  withval=$with_gflagssrc; GFLAGS_CFLAGS="-I${with_gflagssrc}"
+
+fi
+
+
+# Check whether --with-gflagslib was given.
+if test "${with_gflagslib+set}" = set; then :
+  withval=$with_gflagslib; GFLAGS_LIBS="${with_gflagslib}"
+
+$as_echo "#define HAVE_LIB_GFLAGS 1" >>confdefs.h
+
+  ac_cv_have_libgflags=1
+
+fi
+
+
 CFLAGS="$SAVE_CFLAGS"
 LIBS="$SAVE_LIBS"
+# END OF GFLAGS =============================================================
 
 # TODO(hamaji): Use official m4 macros provided by testing libraries
 #               once the m4 macro of Google Mocking becomes ready.

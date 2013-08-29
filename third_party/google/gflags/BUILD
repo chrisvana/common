@@ -12,6 +12,10 @@
      "gcc": {
         "cc_compile_args": [ "-Wno-error=unused-local-typedefs" ]
      },
-     "header_compile_args": [ "-Icommon/third_party/google/gflags/src" ]
+     "header_compile_args": [ "-Icommon/third_party/google/gflags/src" ],
+     "env": {
+       "GFLAGS_SRC_ROOT" : "$SRC_DIR/src",
+       "GFLAGS_LIB_ROOT" : "$OBJ_DIR"
+     }
 } }
 ]

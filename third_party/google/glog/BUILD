@@ -1,7 +1,12 @@
 [
 { "autoconf": {
     "name": "glog_gen",
-    "outs": [ "lib/libglog.a" ]
+    "outs": [ "lib/libglog.a" ],
+    "configure_args": [
+      "--with-gflagssrc=\"$ROOT_DIR/$GFLAGS_SRC_ROOT\"",
+      "--with-gflagslib=\"$ROOT_DIR/$GFLAGS_LIB_ROOT/src/*.o\""
+    ],
+    "dependencies": [ "//common/third_party/google/gflags:gflags" ]
 } },
 
 { "cc_library": {

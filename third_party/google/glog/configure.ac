@@ -127,9 +127,10 @@ if test x"$acx_pthread_ok" = x"yes"; then
   AC_CHECK_LIB(pthread, pthread_self)
 fi
 
-# Check if there is google-gflags library installed.
+# Check if there is google-gflags library installed. ========================
 SAVE_CFLAGS="$CFLAGS"
 SAVE_LIBS="$LIBS"
+
 AC_ARG_WITH(gflags, AS_HELP_STRING[--with-gflags=GFLAGS_DIR],
   GFLAGS_CFLAGS="-I${with_gflags}/include"
   GFLAGS_LIBS="-L${with_gflags}/lib -lgflags"
@@ -146,8 +147,20 @@ else
   GFLAGS_CFLAGS=
   GFLAGS_LIBS=
 fi
+
+# User override of gflags-src and gflags-lib
+AC_ARG_WITH(gflagssrc, AS_HELP_STRING[--with-gflagssrc=GFLAGS_DIR],
+  GFLAGS_CFLAGS="-I${with_gflagssrc}"
+)
+AC_ARG_WITH(gflagslib, AS_HELP_STRING[--with-gflagslib=GFLAGS_DIR],
+  GFLAGS_LIBS="${with_gflagslib}"
+  AC_DEFINE(HAVE_LIB_GFLAGS, 1, [define if you have google gflags library])
+  ac_cv_have_libgflags=1
+)
+
 CFLAGS="$SAVE_CFLAGS"
 LIBS="$SAVE_LIBS"
+# END OF GFLAGS =============================================================
 
 # TODO(hamaji): Use official m4 macros provided by testing libraries
 #               once the m4 macro of Google Mocking becomes ready.
