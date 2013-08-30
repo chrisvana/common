@@ -362,7 +362,7 @@ libstacktrace_la_SOURCES = src/stacktrace.cc \
                            src/base/vdso_support.cc \
                            $(STACKTRACE_INCLUDES)
 libstacktrace_la_LIBADD = $(UNWIND_LIBS) $(LIBSPINLOCK)
-STACKTRACE_SYMBOLS = '(GetStackTrace|GetStackFrames|GetStackTraceWithContext|GetStackFramesWithContext)'
+STACKTRACE_SYMBOLS = '(GetStackTrace|GetStackFrames|GetStackTraceWithContext|GetStackFramesWithContext|.*::FLAGS_.*)'
 libstacktrace_la_LDFLAGS = -export-symbols-regex $(STACKTRACE_SYMBOLS) $(AM_LDFLAGS)
 
 ### Unittests
@@ -859,7 +859,8 @@ S_TCMALLOC_INCLUDES = $(S_TCMALLOC_MINIMAL_INCLUDES) \
                       src/base/stl_allocator.h \
                       src/base/sysinfo.h \
                       src/base/thread_lister.h \
-                      src/heap-profile-table.h
+                      src/heap-profile-table.h \
+                      src/heap-profile-stats.h
 SG_TCMALLOC_INCLUDES = src/gperftools/heap-profiler.h \
                        src/gperftools/heap-checker.h
 TCMALLOC_INCLUDES = $(S_TCMALLOC_INCLUDES) $(SG_TCMALLOC_MINIMAL_INCLUDES) \
@@ -1232,7 +1233,7 @@ libprofiler_la_SOURCES = src/profiler.cc \
 libprofiler_la_LIBADD = libstacktrace.la $(GFLAGS_LIBS)
 libprofiler_la_CXXFLAGS = $(GFLAGS_CFLAGS)
 # We have to include ProfileData for profiledata_unittest
-CPU_PROFILER_SYMBOLS = '(ProfilerStart|ProfilerStartWithOptions|ProfilerStop|ProfilerFlush|ProfilerEnable|ProfilerDisable|ProfilingIsEnabledForAllThreads|ProfilerRegisterThread|ProfilerGetCurrentState|ProfilerState|ProfileData|ProfileHandler)'
+CPU_PROFILER_SYMBOLS = '(ProfilerStart|ProfilerStartWithOptions|ProfilerStop|ProfilerFlush|ProfilerEnable|ProfilerDisable|ProfilingIsEnabledForAllThreads|ProfilerRegisterThread|ProfilerGetCurrentState|ProfilerState|ProfileData|ProfileHandler|.*::FLAGS_.*)'
 libprofiler_la_LDFLAGS = -export-symbols-regex $(CPU_PROFILER_SYMBOLS) \
                          -version-info @PROFILER_SO_VERSION@
 

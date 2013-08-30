@@ -88,6 +88,9 @@
 // are, similarly, mostly hooks into the functionality described above.
 
 // This comes first to ensure we define __STDC_FORMAT_MACROS in time.
+
+#include <iostream>
+
 #include "config.h"
 #if defined(HAVE_INTTYPES_H) && !defined(__STDC_FORMAT_MACROS)
 # define __STDC_FORMAT_MACROS 1   // gcc requires this to get PRId64, etc.

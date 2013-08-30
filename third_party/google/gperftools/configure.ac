@@ -342,10 +342,11 @@ AC_LINK_IFELSE([AC_LANG_PROGRAM([#include <unistd.h>],
 AC_MSG_CHECKING([for __thread])
 AC_LINK_IFELSE([AC_LANG_PROGRAM([#if defined(__GNUC__) && (defined(__i386__) || defined(__x86_64__)) && ((__GNUC__ < 4) || (__GNUC__ == 4 && __GNUC_MINOR__ < 1) || (__GNUC__ == 4 && __GNUC_MINOR__ == 1 && __GNUC_PATCHLEVEL__ < 2))
 #error gcc has this bug: http://gcc.gnu.org/ml/gcc-bugs/2006-09/msg02275.html
-#endif
-#if defined(__MINGW32__)
+#elif defined(__MINGW32__)
 #error mingw doesn't really support tls
-#endif
+#elif defined(__APPLE__)
+#error OSX __thread support is known to call malloc which makes it unsafe to use from malloc replacement
+#endif					 
 ], [static __thread int p = 0])],
                [AC_DEFINE(HAVE_TLS, 1,
                           Define to 1 if compiler supports __thread)

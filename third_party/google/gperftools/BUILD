@@ -16,7 +16,7 @@
 } },
 { "cc_library": {
     "name": "perf_headers",
-    "cc_headers": [ "src/*.h", "src/*/*.h", "src/*/*/*.h" ],
+    "cc_headers": [ "src/gperftools/*.h" ],
     "header_compile_args": [ "-I$SRC_DIR/src" ]
 } },
 { "cc_library": {
