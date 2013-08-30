@@ -17,42 +17,49 @@
 { "cc_library": {
     "name": "perf_headers",
     "cc_headers": [ "src/gperftools/*.h" ],
-    "header_compile_args": [ "-I$SRC_DIR/src" ]
+    "header_compile_args": [ "-I$SRC_DIR/src" ],
+    "alwayslink": true
 } },
 { "cc_library": {
     "name": "profiler",
     "cc_objects": [ "$GEN_DIR/lib/libprofiler.a" ],
     "strict_file_mode": false,
-    "dependencies": [ ":perf_gen" ]
+    "dependencies": [ ":perf_gen" ],
+    "alwayslink": true
 } },
 { "cc_library": {
     "name": "libtcmalloc_and_profiler",
     "cc_objects": [ "$GEN_DIR/lib/libtcmalloc_and_profiler.a" ],
     "strict_file_mode": false,
-    "dependencies": [ ":perf_gen" ]
+    "dependencies": [ ":perf_gen" ],
+    "alwayslink": true
 } },
 { "cc_library": {
     "name": "libtcmalloc_minimal",
     "cc_objects": [ "$GEN_DIR/lib/libtcmalloc_minimal.a" ],
     "strict_file_mode": false,
-    "dependencies": [ ":perf_gen" ]
+    "dependencies": [ ":perf_gen" ],
+    "alwayslink": true
 } },
 { "cc_library": {
     "name": "libtcmalloc",
     "cc_objects": [ "$GEN_DIR/lib/libtcmalloc.a" ],
     "strict_file_mode": false,
-    "dependencies": [ ":perf_gen" ]
+    "dependencies": [ ":perf_gen" ],
+    "alwayslink": true
 } },
 { "cc_library": {
     "name": "libtcmalloc_debug",
     "cc_objects": [ "$GEN_DIR/lib/libtcmalloc_debug.a" ],
     "strict_file_mode": false,
-    "dependencies": [ ":perf_gen" ]
+    "dependencies": [ ":perf_gen" ],
+    "alwayslink": true
 } },
 { "cc_library": {
     "name": "libtcmalloc_minimal_debug",
     "cc_objects": [ "$GEN_DIR/lib/libtcmalloc_minimal_debug.a" ],
     "strict_file_mode": false,
-    "dependencies": [ ":perf_gen" ]
+    "dependencies": [ ":perf_gen" ],
+    "alwayslink": true
 } }
 ]
