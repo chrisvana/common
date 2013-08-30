@@ -4,7 +4,7 @@
     "outs": [ "lib/libglog.a" ],
     "configure_args": [
       "--with-gflagssrc=\"$ROOT_DIR/$GFLAGS_SRC_ROOT\"",
-      "--with-gflagslib=\"$ROOT_DIR/$GFLAGS_LIB_ROOT/src/*.o\""
+      "--with-gflagslib=\"$ROOT_DIR/$GFLAGS_OBJS\""
     ],
     "dependencies": [ "//common/third_party/google/gflags:gflags" ]
 } },

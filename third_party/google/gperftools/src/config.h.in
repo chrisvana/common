@@ -85,6 +85,9 @@
 /* Define to 1 if you have the <libunwind.h> header file. */
 #undef HAVE_LIBUNWIND_H
 
+/* define if you have google gflags library */
+#undef HAVE_LIB_GFLAGS
+
 /* Define to 1 if you have the <linux/ptrace.h> header file. */
 #undef HAVE_LINUX_PTRACE_H
 
@@ -205,9 +208,6 @@
 
 /* Define to 'volatile' if __malloc_hook is declared volatile */
 #undef MALLOC_HOOK_MAYBE_VOLATILE
-
-/* Define to 1 if your C compiler doesn't accept -c and -o together. */
-#undef NO_MINUS_C_MINUS_O
 
 /* Name of package */
 #undef PACKAGE

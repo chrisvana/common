@@ -15,7 +15,7 @@
      "header_compile_args": [ "-Icommon/third_party/google/gflags/src" ],
      "env": {
        "GFLAGS_SRC_ROOT" : "$SRC_DIR/src",
-       "GFLAGS_LIB_ROOT" : "$OBJ_DIR"
+       "GFLAGS_OBJS" : "$OBJ_DIR/src/*.o"
      }
 } }
 ]

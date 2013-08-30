@@ -45,14 +45,19 @@
 // We also put the type of the variable in the namespace, so that
 // people can't DECLARE_int32 something that they DEFINE_bool'd
 // elsewhere.
-#ifndef BASE_COMMANDLINEFLAGS_H_
-#define BASE_COMMANDLINEFLAGS_H_
+
+#ifndef GPERFTOOLS_BASE_COMMANDLINEFLAGS_H_
+#define GPERFTOOLS_BASE_COMMANDLINEFLAGS_H_
 
 #include <config.h>
 #include <string>
 #include <string.h>               // for memchr
 #include <stdlib.h>               // for getenv
 #include "base/basictypes.h"
+
+#if HAVE_LIB_GFLAGS
+#include <gflags/gflags.h>
+#else
 
 #define DECLARE_VARIABLE(type, name)                                          \
   namespace FLAG__namespace_do_not_use_directly_use_DECLARE_##type##_instead {  \
@@ -110,6 +115,8 @@
   }                                                                           \
   using FLAG__namespace_do_not_use_directly_use_DECLARE_string_instead::FLAGS_##name
 
+#endif  // #if 0
+
 // These macros (could be functions, but I don't want to bother with a .cc
 // file), make it easier to initialize flags from the environment.
 
@@ -128,4 +135,4 @@
 #define EnvToDouble(envname, dflt)  \
   (!getenv(envname) ? (dflt) : strtod(getenv(envname), NULL))
 
-#endif  // BASE_COMMANDLINEFLAGS_H_
+#endif  // GPERFTOOLS_BASE_COMMANDLINEFLAGS_H_

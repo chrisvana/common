@@ -54,7 +54,8 @@ COMMON_LIBS = $(PTHREAD_LIBS) $(GFLAGS_LIBS) $(UNWIND_LIBS)
 TEST_CFLAGS = $(GTEST_CFLAGS) $(GMOCK_CFLAGS) $(GFLAGS_CFLAGS) \
               $(MINGW_CFLAGS) $(AM_CXXFLAGS)
 # Libraries for our unittest.
-TEST_LIBS = $(GTEST_LIBS) $(GMOCK_LIBS) $(GFLAGS_LIBS)
+TEST_LIBS = $(GTEST_LIBS) $(GMOCK_LIBS)
+# Get merged with common_libs $(GFLAGS_LIBS)
 
 ## unittests you want to run when people type 'make check'.
 ## TESTS is for binary unittests, check_SCRIPTS for script-based unittests.

@@ -1,6 +1,8 @@
 ## Process this file with autoconf to produce configure.
 ## In general, the safest way to proceed is to run ./autogen.sh
 
+# NB: Modified Chris Van Arsdale, 2013
+
 # make sure we're interpreted by some minimal autoconf
 AC_PREREQ([2.68])
 
@@ -80,6 +82,44 @@ if test "$enable_minimal" = yes; then
   enable_heap_checker=no
 fi
 
+# Check if there is google-gflags library installed. ========================
+SAVE_CFLAGS="$CFLAGS"
+SAVE_LIBS="$LIBS"
+
+AC_ARG_WITH(gflags, AS_HELP_STRING[--with-gflags=GFLAGS_DIR],
+  GFLAGS_CFLAGS="-I${with_gflags}/include"
+  GFLAGS_LIBS="-L${with_gflags}/lib -lgflags"
+  CFLAGS="$CFLAGS $GFLAGS_CFLAGS"
+  LIBS="$LIBS $GFLAGS_LIBS"
+)
+AC_CHECK_LIB(gflags, main, ac_cv_have_libgflags=1, ac_cv_have_libgflags=0)
+if test x"$ac_cv_have_libgflags" = x"1"; then
+  AC_DEFINE(HAVE_LIB_GFLAGS, 1, [define if you have google gflags library])
+  if test x"$GFLAGS_LIBS" = x""; then
+    GFLAGS_LIBS="-lgflags"
+  fi
+else
+  GFLAGS_CFLAGS=
+  GFLAGS_LIBS=
+fi
+
+# User override of gflags-src and gflags-lib
+AC_ARG_WITH(gflagssrc, AS_HELP_STRING[--with-gflagssrc=GFLAGS_DIR],
+  GFLAGS_CFLAGS="-I${with_gflagssrc}"
+)
+AC_ARG_WITH(gflagslib, AS_HELP_STRING[--with-gflagslib=GFLAGS_DIR],
+  GFLAGS_LIBS="${with_gflagslib}"
+  AC_DEFINE(HAVE_LIB_GFLAGS, 1, [define if you have google gflags library])
+  ac_cv_have_libgflags=1
+)
+
+AC_SUBST(GFLAGS_LIBS)
+AC_SUBST(GFLAGS_CFLAGS)
+AC_SUBST(ac_cv_have_libgflags)
+
+CFLAGS="$SAVE_CFLAGS"
+LIBS="$SAVE_LIBS"
+# END OF GFLAGS =============================================================
 
 # Checks for programs.
 AC_PROG_CXX
