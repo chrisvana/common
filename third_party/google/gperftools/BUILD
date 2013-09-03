@@ -8,6 +8,9 @@
               "lib/libtcmalloc_debug.a",
               "lib/libtcmalloc_minimal_debug.a"
     ],
+    "configure_env" : [
+      "USER_CXXFLAGS=-msse4"
+    ],
     "configure_args": [
       "--with-gflagssrc=\"$ROOT_DIR/$GFLAGS_SRC_ROOT\"",
       "--with-gflagslib=\"$ROOT_DIR/$GFLAGS_OBJS\""
