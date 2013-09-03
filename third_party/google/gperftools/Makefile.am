@@ -361,7 +361,8 @@ libstacktrace_la_SOURCES = src/stacktrace.cc \
                            src/base/elf_mem_image.cc \
                            src/base/vdso_support.cc \
                            $(STACKTRACE_INCLUDES)
-libstacktrace_la_LIBADD = $(UNWIND_LIBS) $(LIBSPINLOCK)
+libstacktrace_la_CXXFLAGS = $(GFLAGS_CFLAGS)
+libstacktrace_la_LIBADD = $(UNWIND_LIBS) $(LIBSPINLOCK) $(GFLAGS_LIBS)
 STACKTRACE_SYMBOLS = '(GetStackTrace|GetStackFrames|GetStackTraceWithContext|GetStackFramesWithContext|.*::FLAGS_.*)'
 libstacktrace_la_LDFLAGS = -export-symbols-regex $(STACKTRACE_SYMBOLS) $(AM_LDFLAGS)
 
