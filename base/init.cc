@@ -13,8 +13,18 @@ void InitProgram() {
   google::InitGoogleLogging("");
 }
 
+void InitProgram(int *argc, char*** argv) {
+  return InitProgram(argc, argv, true);
+}
+
 void InitProgram(int *argc, char*** argv, bool remove_flags) {
+  InitProgram(argc, argv, "", remove_flags);
+}
+
+void InitProgram(int *argc, char*** argv,
+                 const char* usage, bool remove_flags) {
   google::InstallFailureSignalHandler();
+  google::SetUsageMessage(usage);
   google::ParseCommandLineFlags(argc, argv, remove_flags);
   google::InitGoogleLogging((*argv)[0]);
 }
