@@ -4,6 +4,7 @@
 #ifndef _COMMON_STRINGS_STRUTIL_H__
 #define _COMMON_STRINGS_STRUTIL_H__
 
+#include <ctype.h>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -67,6 +68,11 @@ std::string Replace(const StringPiece& input,
 std::string ReplaceAll(const StringPiece& input,
                        const StringPiece& original,
                        const StringPiece& replace);
+
+// Upper/Lower
+std::string UpperString(const StringPiece& input);
+std::string LowerString(const StringPiece& input);
+std::string Capitalize(const StringPiece& input);
 
 // Implementations -------------------------
 
@@ -161,6 +167,35 @@ inline std::string JoinWith(const StringPiece& delim,
 }
 
 #endif
+
+// Upper/Lower
+inline std::string UpperString(const StringPiece& input) {
+  std::string output;
+  output.resize(input.size());
+  for (int i = 0; i < input.size(); ++i) {
+    output[i] = ::toupper(input[i]);
+  }
+  return output;
+}
+
+inline std::string LowerString(const StringPiece& input) {
+  std::string output;
+  output.resize(input.size());
+  for (int i = 0; i < input.size(); ++i) {
+    output[i] = ::tolower(input[i]);
+  }
+  return output;
+}
+
+inline std::string Capitalize(const StringPiece& input) {
+  std::string output;
+  input.CopyToString(&output);
+  if (!output.empty()) {
+    output[0] = ::toupper(output[0]);
+  }
+  return output;
+}
+
 
 }  // namespace strings
 

@@ -90,7 +90,7 @@ EGREP="/usr/bin/grep -E"
 FGREP="/usr/bin/grep -F"
 
 # A BSD- or MS-compatible name lister.
-NM="/usr/bin/nm"
+NM="/opt/local/bin/nm"
 
 # Whether we need soft or hard links.
 LN_S="ln -s"
