@@ -18,12 +18,6 @@
     "dependencies": [ "//common/third_party/google/gflags:gflags" ]
 } },
 { "cc_library": {
-    "name": "perf_headers",
-    "cc_headers": [ "src/gperftools/*.h" ],
-    "header_compile_args": [ "-I$SRC_DIR/src" ],
-    "alwayslink": true
-} },
-{ "cc_library": {
     "name": "profiler",
     "cc_objects": [ "$GEN_DIR/lib/libprofiler.a" ],
     "strict_file_mode": false,

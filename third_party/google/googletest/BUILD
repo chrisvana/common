@@ -4,8 +4,8 @@
     "cc_sources": [ "src/gtest-all.cc" ],
     "cc_headers": [ "include/gtest/*.h",
                     "include/gtest/*/*.h" ],
-    "header_compile_args": [ "-I$SRC_DIR/include" ],
-    "cc_compile_args": [ "-I$SRC_DIR" ]
+    "cc_compile_args": [ "-I$SRC_DIR" ],
+    "cc_include_dirs": [ "include" ]
 } },
 { "cc_library": {
     "name": "googletest_main",
