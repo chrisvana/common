@@ -16,5 +16,11 @@ TEST(StringsPath, CleanPath) {
   EXPECT_EQ("/this/is/path", CleanPath("/this/is/a//../path"));
 }
 
+TEST(StringsPath, NumPathComponents) {
+  EXPECT_EQ(2, strings::NumPathComponents("what/this"));
+  EXPECT_EQ(1, strings::NumPathComponents("/this"));
+  EXPECT_EQ(0, strings::NumPathComponents("."));
+}
+
 }  // anonymous namespace
 }  // namespace strings

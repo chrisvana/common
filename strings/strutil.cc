@@ -1,7 +1,10 @@
 // Copyright 2013
 // Author: Christopher Van Arsdale
 //
-// TODO: These functions are in no way efficient.
+// TODO(cvanarsdale): This is a garbage library that should be updated with
+// something faster/correct. It exists solely for bootstrapping this codebase.
+//
+// These functions are in no way efficient.
 
 #include <cstdio>
 #include <string>

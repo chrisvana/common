@@ -45,12 +45,14 @@
                        ":types" ]
    }
  },
+
  { "cc_library": {
     "name": "tcmalloc_perf",
     "dependencies": [
          "//common/third_party/google/gperftools:libtcmalloc_and_profiler"
     ]
  } },
+
  { "cc_library": {
      "name" : "base",
      "dependencies": [ ":base_nomalloc", ":tcmalloc_perf" ]

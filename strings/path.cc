@@ -1,5 +1,8 @@
 // Copyright 2013
 // Author: Christopher Van Arsdale
+//
+// TODO(cvanarsdale): This is a garbage library that should be updated with
+// something faster/correct. It exists solely for bootstrapping this codebase.
 
 #include <errno.h>
 #include <unistd.h>
@@ -81,12 +84,20 @@ int NumPathComponents(const StringPiece& path) {
   std::string tmp = CleanPath(path);
   int count = 0;
   for (StringPiece copy = path; !copy.empty(); ) {
-    ++count;
+    // Find the next component
     int pos = copy.find('/');
-    if (pos == StringPiece::npos) {
-      break;
+    StringPiece piece = copy;
+    if (pos != StringPiece::npos) {
+      piece = copy.substr(0, pos);
     }
-    copy = copy.substr(pos + 1);
+
+    // Only count non-empty pieces
+    if (!piece.empty() && piece != ".") {
+      ++count;
+    }
+
+    // Move on.
+    copy = copy.substr(piece.size() + 1);
   }
   return count;
 }
