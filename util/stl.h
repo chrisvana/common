@@ -10,6 +10,24 @@ bool ContainsKey(const Container& c, const Key& k) {
   return c.find(k) != c.end();
 }
 
+// Vector/list/etc.
+template <typename Value>
+struct STLElementEquals {
+  bool operator()(const Value& a, const Value& b) const {
+    return a == b;
+  }
+};
+template <typename Container, typename Value,
+          typename Equals=STLElementEquals<Value> >
+bool ContainsValue(const Container& c, const Value& v) {
+  for (const Value& val : c) {
+    if (Equals()(v, val)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 template <typename Container, typename Key, typename Value>
 bool FindWithDefault(const Container& c, const Key& k, const Value& v) {
   auto it = c.find(k);
