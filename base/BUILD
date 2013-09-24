@@ -6,6 +6,12 @@
    }
  },
  { "cc_library": {
+     "name" : "callback",
+     "cc_headers": [ "callback.h" ],
+     "dependencies": [ ":macros" ]
+   }
+ },
+ { "cc_library": {
      "name" : "init",
      "cc_sources": [ "init.cc" ],
      "cc_headers" : [ "init.h" ],
