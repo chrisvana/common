@@ -36,6 +36,10 @@ std::vector<std::string> SplitString(const StringPiece& base,
 // Repeat
 std::string Repeat(const StringPiece& input, int n_times);
 
+// Escaping
+std::string Base64Encode(const StringPiece& input);
+bool Base64Decode(const StringPiece& input, std::string* out);
+
 // Join
 template <typename T>
 std::string JoinAll(const T& t, const StringPiece& delim);

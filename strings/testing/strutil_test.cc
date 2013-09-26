@@ -59,5 +59,14 @@ TEST(Strutil, StringPrintf) {
       << " VS " << StringPrintf("foo_%d", 123).size();
 }
 
+TEST(Strutil, Base64Encode) {
+  string data = "this is some data";
+  EXPECT_EQ("dGhpcyBpcyBzb21lIGRhdGE=", Base64Encode(data));
+
+  string output;
+  EXPECT_TRUE(Base64Decode(Base64Encode(data), &output));
+  EXPECT_EQ(data, output);
+}
+
 }  // anonymous namespace
 }  // namespace strings
