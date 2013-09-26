@@ -5,6 +5,20 @@
      "dependencies": [ "//common/third_party/google/gflags:gflags" ]
    }
  },
+
+ { "py_library": {
+     "name" : "py_flags",
+     "py_sources" : [ "flags.py" ],
+     "dependencies": [ "//common/third_party/google/gflags_python:gflags" ]
+   }
+ },
+
+ { "cc_library": {
+     "name" : "callback",
+     "cc_headers": [ "callback.h" ],
+     "dependencies": [ ":macros" ]
+   }
+ },
  { "cc_library": {
      "name" : "callback",
      "cc_headers": [ "callback.h" ],
