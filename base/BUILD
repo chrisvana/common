@@ -6,6 +6,13 @@
    }
  },
 
+ { "cc_library": {
+     "name" : "atomicops",
+     "cc_headers" : [ "atomicops.h" ],
+     "dependencies": [ "//common/third_party/google/gperftools:atomicops" ]
+   }
+ },
+
  { "py_library": {
      "name" : "py_flags",
      "py_sources" : [ "flags.py" ],
@@ -13,12 +20,6 @@
    }
  },
 
- { "cc_library": {
-     "name" : "callback",
-     "cc_headers": [ "callback.h" ],
-     "dependencies": [ ":macros" ]
-   }
- },
  { "cc_library": {
      "name" : "callback",
      "cc_headers": [ "callback.h" ],
@@ -57,7 +58,8 @@
  },
  { "cc_library": {
      "name" : "base_nomalloc",
-     "dependencies": [ ":flags",
+     "dependencies": [ ":atomicops",
+                       ":flags",
                        ":init",
                        ":macros",
                        ":mutex",

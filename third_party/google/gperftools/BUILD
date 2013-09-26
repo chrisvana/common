@@ -18,6 +18,12 @@
     "dependencies": [ "//common/third_party/google/gflags:gflags" ]
 } },
 { "cc_library": {
+    "name": "atomicops",
+    "cc_headers": [ "src/base/atomicops.h" ],
+    "cc_include_dirs": [ "src" ],
+    "dependencies": [ ":perf_gen" ]
+} },
+{ "cc_library": {
     "name": "profiler",
     "cc_objects": [ "$GEN_DIR/lib/libprofiler.a" ],
     "strict_file_mode": false,
