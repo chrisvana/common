@@ -64,8 +64,15 @@ TEST(Strutil, Base64Encode) {
   EXPECT_EQ("dGhpcyBpcyBzb21lIGRhdGE=", Base64Encode(data));
 
   string output;
-  EXPECT_TRUE(Base64Decode(Base64Encode(data), &output));
-  EXPECT_EQ(data, output);
+  EXPECT_EQ(data, Base64Decode(Base64Encode(data)));
+}
+
+TEST(Strutil, WebSafeBase64Encode) {
+  string data = "this is some data";
+  EXPECT_EQ("dGhpcyBpcyBzb21lIGRhdGE.", WebSafeBase64Encode(data));
+
+  string output;
+  EXPECT_EQ(data, WebSafeBase64Decode(WebSafeBase64Encode(data)));
 }
 
 }  // anonymous namespace

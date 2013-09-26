@@ -38,7 +38,9 @@ std::string Repeat(const StringPiece& input, int n_times);
 
 // Escaping
 std::string Base64Encode(const StringPiece& input);
-bool Base64Decode(const StringPiece& input, std::string* out);
+std::string Base64Decode(const StringPiece& input);
+std::string WebSafeBase64Encode(const StringPiece& input);
+std::string WebSafeBase64Decode(const StringPiece& input);
 
 // Join
 template <typename T>

@@ -11,7 +11,8 @@
 #include <vector>
 #include "common/strings/stringpiece.h"
 #include "common/strings/strutil.h"
-#include "common/third_party/base64/base64.h"
+#include "common/third_party/stringencoders/src/modp_b64.h"
+#include "common/third_party/stringencoders/src/modp_b64w.h"
 
 namespace strings {
 
@@ -98,12 +99,17 @@ std::string ReplaceAll(const StringPiece& input,
 }
 
 std::string Base64Encode(const StringPiece& input) {
-  return base64_encode(reinterpret_cast<const unsigned char*>(input.data()),
-                       input.size());
+  return modp::b64_encode(input.data(), input.size());
 }
-bool Base64Decode(const StringPiece& input, std::string* out) {
-  return base64_decode(reinterpret_cast<const unsigned char*>(input.data()),
-                       input.size(), out);
+std::string Base64Decode(const StringPiece& input) {
+  return modp::b64_decode(input.data(), input.size());
+}
+
+std::string WebSafeBase64Encode(const StringPiece& input) {
+  return modp::b64w_encode(input.data(), input.size());
+}
+std::string WebSafeBase64Decode(const StringPiece& input) {
+  return modp::b64w_decode(input.data(), input.size());
 }
 
 }  // namespace strings

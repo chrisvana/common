@@ -8,7 +8,7 @@
      "name" : "strutil",
      "cc_sources" : [ "strutil.cc", "path.cc", "varmap.cc" ],
      "cc_headers" : [ "strutil.h", "path.h", "varmap.h" ],
-     "dependencies": [ "//common/third_party/base64:base64",
+     "dependencies": [ "//common/third_party/stringencoders:stringencoders",
                        ":stringpiece" ]
    }
  }
