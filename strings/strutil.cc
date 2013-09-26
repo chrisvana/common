@@ -102,8 +102,8 @@ std::string Base64Encode(const StringPiece& input) {
                        input.size());
 }
 bool Base64Decode(const StringPiece& input, std::string* out) {
-  *out = base64_decode(input.as_string());
-  return true;
+  return base64_decode(reinterpret_cast<const unsigned char*>(input.data()),
+                       input.size(), out);
 }
 
 }  // namespace strings
