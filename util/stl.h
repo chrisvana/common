@@ -4,6 +4,8 @@
 #ifndef _COMMON_UTIL_STL_H__
 #define _COMMON_UTIL_STL_H__
 
+#include "common/base/callback.h"
+
 // Map/set utilities
 template <typename Container, typename Key>
 bool ContainsKey(const Container& c, const Key& k) {
@@ -31,13 +33,13 @@ bool ContainsValue(const Container& c, const Value& v) {
 template <typename Container, typename Key, typename Value>
 bool FindWithDefault(const Container& c, const Key& k, const Value& v) {
   auto it = c.find(k);
-  return (it == c.end() ? v : it.second);
+  return (it == c.end() ? v : it->second);
 }
 
 template <typename Container, typename Key, typename Value>
 bool FindPtrOrNull(const Container& c, const Key& k) {
   auto it = c.find(k);
-  return (it == c.end() ? nullptr : it.second);
+  return (it == c.end() ? nullptr : it->second);
 }
 
 // Memory management --------------------------------------------
@@ -55,26 +57,26 @@ void DeleteValues(T* t) {
   }
 }
 
-template <typename T>
 class ElementDeleter {
  public:
-  explicit ElementDeleter(T* t) : t_(t) {}
+  template <typename T>
+  explicit ElementDeleter(T* t) : func_(NewCallback(&DeleteElements<T>, t)) {}
   ~ElementDeleter() {
-    DeleteElements(t_);
+    func_->Run();
   }
  private:
-  T* t_;
+  Closure* func_;
 };
 
-template <typename T>
 class ValueDeleter {
  public:
-  explicit ValueDeleter(T* t) : t_(t) {}
+  template <typename T>
+  explicit ValueDeleter(T* t) :func_(NewCallback(&DeleteValues<T>, t)) {}
   ~ValueDeleter() {
-    DeleteValues(t_);
+    func_->Run();
   }
  private:
-  T* t_;
+  Closure* func_;
 };
 
 #endif  // _COMMON_UTIL_STL_H__
