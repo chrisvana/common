@@ -31,13 +31,13 @@ bool ContainsValue(const Container& c, const Value& v) {
 }
 
 template <typename Container, typename Key, typename Value>
-bool FindWithDefault(const Container& c, const Key& k, const Value& v) {
+Value FindWithDefault(const Container& c, const Key& k, const Value& v) {
   auto it = c.find(k);
   return (it == c.end() ? v : it->second);
 }
 
 template <typename Container, typename Key, typename Value>
-bool FindPtrOrNull(const Container& c, const Key& k) {
+Value FindPtrOrNull(const Container& c, const Key& k) {
   auto it = c.find(k);
   return (it == c.end() ? nullptr : it->second);
 }
