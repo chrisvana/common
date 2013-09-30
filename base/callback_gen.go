@@ -212,7 +212,7 @@ func OutputNewCallback(num_total int, num_args int, object bool, perm bool) {
   fmt.Println(GetTemplateArgs(num_total, object, object))
 
   // Callback...* NewCallback(...) {
-  line := GetBaseClass(num_inputs, num_args) + "* "
+  line := "inline " + GetBaseClass(num_inputs, num_args) + "* "
   if perm {
     line += "NewPermanentCallback("
   } else {

@@ -1960,21 +1960,21 @@ class MemberCallback0_7 : public Callback7<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, A
 
 
 
-Closure* NewCallback(void (*f)()) {
+inline Closure* NewCallback(void (*f)()) {
   return new FunctionCallback0_0(
     false,
     f);
 }
 
 
-Closure* NewPermanentCallback(void (*f)()) {
+inline Closure* NewPermanentCallback(void (*f)()) {
   return new FunctionCallback0_0(
     true,
     f);
 }
 
 template <typename Object, typename InputObject=Object>
-Closure* NewCallback(InputObject* object, void(Object::*f)()) {
+inline Closure* NewCallback(InputObject* object, void(Object::*f)()) {
   return new MemberCallback0_0<Object>(
     false,
     f,
@@ -1982,7 +1982,7 @@ Closure* NewCallback(InputObject* object, void(Object::*f)()) {
 }
 
 template <typename Object, typename InputObject=Object>
-Closure* NewPermanentCallback(InputObject* object, void(Object::*f)()) {
+inline Closure* NewPermanentCallback(InputObject* object, void(Object::*f)()) {
   return new MemberCallback0_0<Object>(
     true,
     f,
@@ -1990,7 +1990,7 @@ Closure* NewPermanentCallback(InputObject* object, void(Object::*f)()) {
 }
 
 template <typename Arg0>
-Closure* NewCallback(void (*f)(Arg0 arg0), Arg0 arg0) {
+inline Closure* NewCallback(void (*f)(Arg0 arg0), Arg0 arg0) {
   return new FunctionCallback1_0<Arg0>(
     false,
     f,
@@ -1998,7 +1998,7 @@ Closure* NewCallback(void (*f)(Arg0 arg0), Arg0 arg0) {
 }
 
 template <typename Arg0>
-Closure* NewPermanentCallback(void (*f)(Arg0 arg0), Arg0 arg0) {
+inline Closure* NewPermanentCallback(void (*f)(Arg0 arg0), Arg0 arg0) {
   return new FunctionCallback1_0<Arg0>(
     true,
     f,
@@ -2006,7 +2006,7 @@ Closure* NewPermanentCallback(void (*f)(Arg0 arg0), Arg0 arg0) {
 }
 
 template <typename Object, typename Arg0, typename InputObject=Object>
-Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0), Arg0 arg0) {
+inline Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0), Arg0 arg0) {
   return new MemberCallback1_0<Object,Arg0>(
     false,
     f,
@@ -2015,7 +2015,7 @@ Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0), Arg0 arg0
 }
 
 template <typename Object, typename Arg0, typename InputObject=Object>
-Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0), Arg0 arg0) {
+inline Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0), Arg0 arg0) {
   return new MemberCallback1_0<Object,Arg0>(
     true,
     f,
@@ -2024,21 +2024,21 @@ Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0), 
 }
 
 template <typename Arg0>
-Callback1<Arg0>* NewCallback(void (*f)(Arg0 arg0)) {
+inline Callback1<Arg0>* NewCallback(void (*f)(Arg0 arg0)) {
   return new FunctionCallback0_1<Arg0>(
     false,
     f);
 }
 
 template <typename Arg0>
-Callback1<Arg0>* NewPermanentCallback(void (*f)(Arg0 arg0)) {
+inline Callback1<Arg0>* NewPermanentCallback(void (*f)(Arg0 arg0)) {
   return new FunctionCallback0_1<Arg0>(
     true,
     f);
 }
 
 template <typename Object, typename Arg0, typename InputObject=Object>
-Callback1<Arg0>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0)) {
+inline Callback1<Arg0>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0)) {
   return new MemberCallback0_1<Object,Arg0>(
     false,
     f,
@@ -2046,7 +2046,7 @@ Callback1<Arg0>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0)) {
 }
 
 template <typename Object, typename Arg0, typename InputObject=Object>
-Callback1<Arg0>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0)) {
+inline Callback1<Arg0>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0)) {
   return new MemberCallback0_1<Object,Arg0>(
     true,
     f,
@@ -2054,7 +2054,7 @@ Callback1<Arg0>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0
 }
 
 template <typename Arg0, typename Arg1>
-Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0, Arg1 arg1) {
+inline Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0, Arg1 arg1) {
   return new FunctionCallback2_0<Arg0,Arg1>(
     false,
     f,
@@ -2062,7 +2062,7 @@ Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0, Arg1 arg1) {
 }
 
 template <typename Arg0, typename Arg1>
-Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0, Arg1 arg1) {
+inline Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0, Arg1 arg1) {
   return new FunctionCallback2_0<Arg0,Arg1>(
     true,
     f,
@@ -2070,7 +2070,7 @@ Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0, Arg1 a
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename InputObject=Object>
-Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0, Arg1 arg1) {
+inline Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0, Arg1 arg1) {
   return new MemberCallback2_0<Object,Arg0,Arg1>(
     false,
     f,
@@ -2079,7 +2079,7 @@ Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1)
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename InputObject=Object>
-Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0, Arg1 arg1) {
+inline Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0, Arg1 arg1) {
   return new MemberCallback2_0<Object,Arg0,Arg1>(
     true,
     f,
@@ -2088,7 +2088,7 @@ Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, A
 }
 
 template <typename Arg0, typename Arg1>
-Callback1<Arg1>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0) {
+inline Callback1<Arg1>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0) {
   return new FunctionCallback1_1<Arg0,Arg1>(
     false,
     f,
@@ -2096,7 +2096,7 @@ Callback1<Arg1>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0) {
 }
 
 template <typename Arg0, typename Arg1>
-Callback1<Arg1>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0) {
+inline Callback1<Arg1>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0) {
   return new FunctionCallback1_1<Arg0,Arg1>(
     true,
     f,
@@ -2104,7 +2104,7 @@ Callback1<Arg1>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename InputObject=Object>
-Callback1<Arg1>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0) {
+inline Callback1<Arg1>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0) {
   return new MemberCallback1_1<Object,Arg0,Arg1>(
     false,
     f,
@@ -2113,7 +2113,7 @@ Callback1<Arg1>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename InputObject=Object>
-Callback1<Arg1>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0) {
+inline Callback1<Arg1>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1), Arg0 arg0) {
   return new MemberCallback1_1<Object,Arg0,Arg1>(
     true,
     f,
@@ -2122,21 +2122,21 @@ Callback1<Arg1>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0
 }
 
 template <typename Arg0, typename Arg1>
-Callback2<Arg0, Arg1>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1)) {
+inline Callback2<Arg0, Arg1>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1)) {
   return new FunctionCallback0_2<Arg0,Arg1>(
     false,
     f);
 }
 
 template <typename Arg0, typename Arg1>
-Callback2<Arg0, Arg1>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1)) {
+inline Callback2<Arg0, Arg1>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1)) {
   return new FunctionCallback0_2<Arg0,Arg1>(
     true,
     f);
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename InputObject=Object>
-Callback2<Arg0, Arg1>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1)) {
+inline Callback2<Arg0, Arg1>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1)) {
   return new MemberCallback0_2<Object,Arg0,Arg1>(
     false,
     f,
@@ -2144,7 +2144,7 @@ Callback2<Arg0, Arg1>* NewCallback(InputObject* object, void(Object::*f)(Arg0 ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename InputObject=Object>
-Callback2<Arg0, Arg1>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1)) {
+inline Callback2<Arg0, Arg1>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1)) {
   return new MemberCallback0_2<Object,Arg0,Arg1>(
     true,
     f,
@@ -2152,7 +2152,7 @@ Callback2<Arg0, Arg1>* NewPermanentCallback(InputObject* object, void(Object::*f
 }
 
 template <typename Arg0, typename Arg1, typename Arg2>
-Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new FunctionCallback3_0<Arg0,Arg1,Arg2>(
     false,
     f,
@@ -2160,7 +2160,7 @@ Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1
 }
 
 template <typename Arg0, typename Arg1, typename Arg2>
-Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new FunctionCallback3_0<Arg0,Arg1,Arg2>(
     true,
     f,
@@ -2168,7 +2168,7 @@ Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 a
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename InputObject=Object>
-Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new MemberCallback3_0<Object,Arg0,Arg1,Arg2>(
     false,
     f,
@@ -2177,7 +2177,7 @@ Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1,
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename InputObject=Object>
-Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new MemberCallback3_0<Object,Arg0,Arg1,Arg2>(
     true,
     f,
@@ -2186,7 +2186,7 @@ Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, A
 }
 
 template <typename Arg0, typename Arg1, typename Arg2>
-Callback1<Arg2>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1 arg1) {
+inline Callback1<Arg2>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1 arg1) {
   return new FunctionCallback2_1<Arg0,Arg1,Arg2>(
     false,
     f,
@@ -2194,7 +2194,7 @@ Callback1<Arg2>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 ar
 }
 
 template <typename Arg0, typename Arg1, typename Arg2>
-Callback1<Arg2>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1 arg1) {
+inline Callback1<Arg2>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1 arg1) {
   return new FunctionCallback2_1<Arg0,Arg1,Arg2>(
     true,
     f,
@@ -2202,7 +2202,7 @@ Callback1<Arg2>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2)
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename InputObject=Object>
-Callback1<Arg2>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1 arg1) {
+inline Callback1<Arg2>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1 arg1) {
   return new MemberCallback2_1<Object,Arg0,Arg1,Arg2>(
     false,
     f,
@@ -2211,7 +2211,7 @@ Callback1<Arg2>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename InputObject=Object>
-Callback1<Arg2>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1 arg1) {
+inline Callback1<Arg2>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0, Arg1 arg1) {
   return new MemberCallback2_1<Object,Arg0,Arg1,Arg2>(
     true,
     f,
@@ -2220,7 +2220,7 @@ Callback1<Arg2>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0
 }
 
 template <typename Arg0, typename Arg1, typename Arg2>
-Callback2<Arg1, Arg2>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0) {
+inline Callback2<Arg1, Arg2>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0) {
   return new FunctionCallback1_2<Arg0,Arg1,Arg2>(
     false,
     f,
@@ -2228,7 +2228,7 @@ Callback2<Arg1, Arg2>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), A
 }
 
 template <typename Arg0, typename Arg1, typename Arg2>
-Callback2<Arg1, Arg2>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0) {
+inline Callback2<Arg1, Arg2>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0) {
   return new FunctionCallback1_2<Arg0,Arg1,Arg2>(
     true,
     f,
@@ -2236,7 +2236,7 @@ Callback2<Arg1, Arg2>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename InputObject=Object>
-Callback2<Arg1, Arg2>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0) {
+inline Callback2<Arg1, Arg2>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0) {
   return new MemberCallback1_2<Object,Arg0,Arg1,Arg2>(
     false,
     f,
@@ -2245,7 +2245,7 @@ Callback2<Arg1, Arg2>* NewCallback(InputObject* object, void(Object::*f)(Arg0 ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename InputObject=Object>
-Callback2<Arg1, Arg2>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0) {
+inline Callback2<Arg1, Arg2>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2), Arg0 arg0) {
   return new MemberCallback1_2<Object,Arg0,Arg1,Arg2>(
     true,
     f,
@@ -2254,21 +2254,21 @@ Callback2<Arg1, Arg2>* NewPermanentCallback(InputObject* object, void(Object::*f
 }
 
 template <typename Arg0, typename Arg1, typename Arg2>
-Callback3<Arg0, Arg1, Arg2>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2)) {
+inline Callback3<Arg0, Arg1, Arg2>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2)) {
   return new FunctionCallback0_3<Arg0,Arg1,Arg2>(
     false,
     f);
 }
 
 template <typename Arg0, typename Arg1, typename Arg2>
-Callback3<Arg0, Arg1, Arg2>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2)) {
+inline Callback3<Arg0, Arg1, Arg2>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2)) {
   return new FunctionCallback0_3<Arg0,Arg1,Arg2>(
     true,
     f);
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename InputObject=Object>
-Callback3<Arg0, Arg1, Arg2>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2)) {
+inline Callback3<Arg0, Arg1, Arg2>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2)) {
   return new MemberCallback0_3<Object,Arg0,Arg1,Arg2>(
     false,
     f,
@@ -2276,7 +2276,7 @@ Callback3<Arg0, Arg1, Arg2>* NewCallback(InputObject* object, void(Object::*f)(A
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename InputObject=Object>
-Callback3<Arg0, Arg1, Arg2>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2)) {
+inline Callback3<Arg0, Arg1, Arg2>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2)) {
   return new MemberCallback0_3<Object,Arg0,Arg1,Arg2>(
     true,
     f,
@@ -2284,7 +2284,7 @@ Callback3<Arg0, Arg1, Arg2>* NewPermanentCallback(InputObject* object, void(Obje
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3>
-Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+inline Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
   return new FunctionCallback4_0<Arg0,Arg1,Arg2,Arg3>(
     false,
     f,
@@ -2292,7 +2292,7 @@ Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3>
-Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+inline Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
   return new FunctionCallback4_0<Arg0,Arg1,Arg2,Arg3>(
     true,
     f,
@@ -2300,7 +2300,7 @@ Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename InputObject=Object>
-Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+inline Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
   return new MemberCallback4_0<Object,Arg0,Arg1,Arg2,Arg3>(
     false,
     f,
@@ -2309,7 +2309,7 @@ Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1,
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename InputObject=Object>
-Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+inline Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
   return new MemberCallback4_0<Object,Arg0,Arg1,Arg2,Arg3>(
     true,
     f,
@@ -2318,7 +2318,7 @@ Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, A
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3>
-Callback1<Arg3>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Callback1<Arg3>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new FunctionCallback3_1<Arg0,Arg1,Arg2,Arg3>(
     false,
     f,
@@ -2326,7 +2326,7 @@ Callback1<Arg3>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3>
-Callback1<Arg3>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Callback1<Arg3>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new FunctionCallback3_1<Arg0,Arg1,Arg2,Arg3>(
     true,
     f,
@@ -2334,7 +2334,7 @@ Callback1<Arg3>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2,
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename InputObject=Object>
-Callback1<Arg3>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Callback1<Arg3>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new MemberCallback3_1<Object,Arg0,Arg1,Arg2,Arg3>(
     false,
     f,
@@ -2343,7 +2343,7 @@ Callback1<Arg3>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename InputObject=Object>
-Callback1<Arg3>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Callback1<Arg3>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new MemberCallback3_1<Object,Arg0,Arg1,Arg2,Arg3>(
     true,
     f,
@@ -2352,7 +2352,7 @@ Callback1<Arg3>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3>
-Callback2<Arg2, Arg3>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1) {
+inline Callback2<Arg2, Arg3>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1) {
   return new FunctionCallback2_2<Arg0,Arg1,Arg2,Arg3>(
     false,
     f,
@@ -2360,7 +2360,7 @@ Callback2<Arg2, Arg3>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Ar
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3>
-Callback2<Arg2, Arg3>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1) {
+inline Callback2<Arg2, Arg3>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1) {
   return new FunctionCallback2_2<Arg0,Arg1,Arg2,Arg3>(
     true,
     f,
@@ -2368,7 +2368,7 @@ Callback2<Arg2, Arg3>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename InputObject=Object>
-Callback2<Arg2, Arg3>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1) {
+inline Callback2<Arg2, Arg3>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1) {
   return new MemberCallback2_2<Object,Arg0,Arg1,Arg2,Arg3>(
     false,
     f,
@@ -2377,7 +2377,7 @@ Callback2<Arg2, Arg3>* NewCallback(InputObject* object, void(Object::*f)(Arg0 ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename InputObject=Object>
-Callback2<Arg2, Arg3>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1) {
+inline Callback2<Arg2, Arg3>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0, Arg1 arg1) {
   return new MemberCallback2_2<Object,Arg0,Arg1,Arg2,Arg3>(
     true,
     f,
@@ -2386,7 +2386,7 @@ Callback2<Arg2, Arg3>* NewPermanentCallback(InputObject* object, void(Object::*f
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3>
-Callback3<Arg1, Arg2, Arg3>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0) {
+inline Callback3<Arg1, Arg2, Arg3>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0) {
   return new FunctionCallback1_3<Arg0,Arg1,Arg2,Arg3>(
     false,
     f,
@@ -2394,7 +2394,7 @@ Callback3<Arg1, Arg2, Arg3>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 ar
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3>
-Callback3<Arg1, Arg2, Arg3>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0) {
+inline Callback3<Arg1, Arg2, Arg3>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0) {
   return new FunctionCallback1_3<Arg0,Arg1,Arg2,Arg3>(
     true,
     f,
@@ -2402,7 +2402,7 @@ Callback3<Arg1, Arg2, Arg3>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename InputObject=Object>
-Callback3<Arg1, Arg2, Arg3>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0) {
+inline Callback3<Arg1, Arg2, Arg3>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0) {
   return new MemberCallback1_3<Object,Arg0,Arg1,Arg2,Arg3>(
     false,
     f,
@@ -2411,7 +2411,7 @@ Callback3<Arg1, Arg2, Arg3>* NewCallback(InputObject* object, void(Object::*f)(A
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename InputObject=Object>
-Callback3<Arg1, Arg2, Arg3>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0) {
+inline Callback3<Arg1, Arg2, Arg3>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3), Arg0 arg0) {
   return new MemberCallback1_3<Object,Arg0,Arg1,Arg2,Arg3>(
     true,
     f,
@@ -2420,21 +2420,21 @@ Callback3<Arg1, Arg2, Arg3>* NewPermanentCallback(InputObject* object, void(Obje
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3>
-Callback4<Arg0, Arg1, Arg2, Arg3>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3)) {
+inline Callback4<Arg0, Arg1, Arg2, Arg3>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3)) {
   return new FunctionCallback0_4<Arg0,Arg1,Arg2,Arg3>(
     false,
     f);
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3>
-Callback4<Arg0, Arg1, Arg2, Arg3>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3)) {
+inline Callback4<Arg0, Arg1, Arg2, Arg3>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3)) {
   return new FunctionCallback0_4<Arg0,Arg1,Arg2,Arg3>(
     true,
     f);
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename InputObject=Object>
-Callback4<Arg0, Arg1, Arg2, Arg3>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3)) {
+inline Callback4<Arg0, Arg1, Arg2, Arg3>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3)) {
   return new MemberCallback0_4<Object,Arg0,Arg1,Arg2,Arg3>(
     false,
     f,
@@ -2442,7 +2442,7 @@ Callback4<Arg0, Arg1, Arg2, Arg3>* NewCallback(InputObject* object, void(Object:
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename InputObject=Object>
-Callback4<Arg0, Arg1, Arg2, Arg3>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3)) {
+inline Callback4<Arg0, Arg1, Arg2, Arg3>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3)) {
   return new MemberCallback0_4<Object,Arg0,Arg1,Arg2,Arg3>(
     true,
     f,
@@ -2450,7 +2450,7 @@ Callback4<Arg0, Arg1, Arg2, Arg3>* NewPermanentCallback(InputObject* object, voi
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
+inline Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
   return new FunctionCallback5_0<Arg0,Arg1,Arg2,Arg3,Arg4>(
     false,
     f,
@@ -2458,7 +2458,7 @@ Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
+inline Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
   return new FunctionCallback5_0<Arg0,Arg1,Arg2,Arg3,Arg4>(
     true,
     f,
@@ -2466,7 +2466,7 @@ Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename InputObject=Object>
-Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
+inline Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
   return new MemberCallback5_0<Object,Arg0,Arg1,Arg2,Arg3,Arg4>(
     false,
     f,
@@ -2475,7 +2475,7 @@ Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1,
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename InputObject=Object>
-Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
+inline Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
   return new MemberCallback5_0<Object,Arg0,Arg1,Arg2,Arg3,Arg4>(
     true,
     f,
@@ -2484,7 +2484,7 @@ Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, A
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-Callback1<Arg4>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+inline Callback1<Arg4>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
   return new FunctionCallback4_1<Arg0,Arg1,Arg2,Arg3,Arg4>(
     false,
     f,
@@ -2492,7 +2492,7 @@ Callback1<Arg4>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-Callback1<Arg4>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+inline Callback1<Arg4>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
   return new FunctionCallback4_1<Arg0,Arg1,Arg2,Arg3,Arg4>(
     true,
     f,
@@ -2500,7 +2500,7 @@ Callback1<Arg4>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2,
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename InputObject=Object>
-Callback1<Arg4>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+inline Callback1<Arg4>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
   return new MemberCallback4_1<Object,Arg0,Arg1,Arg2,Arg3,Arg4>(
     false,
     f,
@@ -2509,7 +2509,7 @@ Callback1<Arg4>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename InputObject=Object>
-Callback1<Arg4>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+inline Callback1<Arg4>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
   return new MemberCallback4_1<Object,Arg0,Arg1,Arg2,Arg3,Arg4>(
     true,
     f,
@@ -2518,7 +2518,7 @@ Callback1<Arg4>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-Callback2<Arg3, Arg4>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Callback2<Arg3, Arg4>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new FunctionCallback3_2<Arg0,Arg1,Arg2,Arg3,Arg4>(
     false,
     f,
@@ -2526,7 +2526,7 @@ Callback2<Arg3, Arg4>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Ar
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-Callback2<Arg3, Arg4>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Callback2<Arg3, Arg4>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new FunctionCallback3_2<Arg0,Arg1,Arg2,Arg3,Arg4>(
     true,
     f,
@@ -2534,7 +2534,7 @@ Callback2<Arg3, Arg4>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename InputObject=Object>
-Callback2<Arg3, Arg4>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Callback2<Arg3, Arg4>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new MemberCallback3_2<Object,Arg0,Arg1,Arg2,Arg3,Arg4>(
     false,
     f,
@@ -2543,7 +2543,7 @@ Callback2<Arg3, Arg4>* NewCallback(InputObject* object, void(Object::*f)(Arg0 ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename InputObject=Object>
-Callback2<Arg3, Arg4>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Callback2<Arg3, Arg4>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new MemberCallback3_2<Object,Arg0,Arg1,Arg2,Arg3,Arg4>(
     true,
     f,
@@ -2552,7 +2552,7 @@ Callback2<Arg3, Arg4>* NewPermanentCallback(InputObject* object, void(Object::*f
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-Callback3<Arg2, Arg3, Arg4>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1) {
+inline Callback3<Arg2, Arg3, Arg4>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1) {
   return new FunctionCallback2_3<Arg0,Arg1,Arg2,Arg3,Arg4>(
     false,
     f,
@@ -2560,7 +2560,7 @@ Callback3<Arg2, Arg3, Arg4>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 ar
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-Callback3<Arg2, Arg3, Arg4>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1) {
+inline Callback3<Arg2, Arg3, Arg4>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1) {
   return new FunctionCallback2_3<Arg0,Arg1,Arg2,Arg3,Arg4>(
     true,
     f,
@@ -2568,7 +2568,7 @@ Callback3<Arg2, Arg3, Arg4>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename InputObject=Object>
-Callback3<Arg2, Arg3, Arg4>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1) {
+inline Callback3<Arg2, Arg3, Arg4>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1) {
   return new MemberCallback2_3<Object,Arg0,Arg1,Arg2,Arg3,Arg4>(
     false,
     f,
@@ -2577,7 +2577,7 @@ Callback3<Arg2, Arg3, Arg4>* NewCallback(InputObject* object, void(Object::*f)(A
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename InputObject=Object>
-Callback3<Arg2, Arg3, Arg4>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1) {
+inline Callback3<Arg2, Arg3, Arg4>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0, Arg1 arg1) {
   return new MemberCallback2_3<Object,Arg0,Arg1,Arg2,Arg3,Arg4>(
     true,
     f,
@@ -2586,7 +2586,7 @@ Callback3<Arg2, Arg3, Arg4>* NewPermanentCallback(InputObject* object, void(Obje
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-Callback4<Arg1, Arg2, Arg3, Arg4>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0) {
+inline Callback4<Arg1, Arg2, Arg3, Arg4>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0) {
   return new FunctionCallback1_4<Arg0,Arg1,Arg2,Arg3,Arg4>(
     false,
     f,
@@ -2594,7 +2594,7 @@ Callback4<Arg1, Arg2, Arg3, Arg4>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, A
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-Callback4<Arg1, Arg2, Arg3, Arg4>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0) {
+inline Callback4<Arg1, Arg2, Arg3, Arg4>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0) {
   return new FunctionCallback1_4<Arg0,Arg1,Arg2,Arg3,Arg4>(
     true,
     f,
@@ -2602,7 +2602,7 @@ Callback4<Arg1, Arg2, Arg3, Arg4>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename InputObject=Object>
-Callback4<Arg1, Arg2, Arg3, Arg4>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0) {
+inline Callback4<Arg1, Arg2, Arg3, Arg4>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0) {
   return new MemberCallback1_4<Object,Arg0,Arg1,Arg2,Arg3,Arg4>(
     false,
     f,
@@ -2611,7 +2611,7 @@ Callback4<Arg1, Arg2, Arg3, Arg4>* NewCallback(InputObject* object, void(Object:
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename InputObject=Object>
-Callback4<Arg1, Arg2, Arg3, Arg4>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0) {
+inline Callback4<Arg1, Arg2, Arg3, Arg4>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4), Arg0 arg0) {
   return new MemberCallback1_4<Object,Arg0,Arg1,Arg2,Arg3,Arg4>(
     true,
     f,
@@ -2620,21 +2620,21 @@ Callback4<Arg1, Arg2, Arg3, Arg4>* NewPermanentCallback(InputObject* object, voi
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-Callback5<Arg0, Arg1, Arg2, Arg3, Arg4>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4)) {
+inline Callback5<Arg0, Arg1, Arg2, Arg3, Arg4>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4)) {
   return new FunctionCallback0_5<Arg0,Arg1,Arg2,Arg3,Arg4>(
     false,
     f);
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-Callback5<Arg0, Arg1, Arg2, Arg3, Arg4>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4)) {
+inline Callback5<Arg0, Arg1, Arg2, Arg3, Arg4>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4)) {
   return new FunctionCallback0_5<Arg0,Arg1,Arg2,Arg3,Arg4>(
     true,
     f);
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename InputObject=Object>
-Callback5<Arg0, Arg1, Arg2, Arg3, Arg4>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4)) {
+inline Callback5<Arg0, Arg1, Arg2, Arg3, Arg4>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4)) {
   return new MemberCallback0_5<Object,Arg0,Arg1,Arg2,Arg3,Arg4>(
     false,
     f,
@@ -2642,7 +2642,7 @@ Callback5<Arg0, Arg1, Arg2, Arg3, Arg4>* NewCallback(InputObject* object, void(O
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename InputObject=Object>
-Callback5<Arg0, Arg1, Arg2, Arg3, Arg4>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4)) {
+inline Callback5<Arg0, Arg1, Arg2, Arg3, Arg4>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4)) {
   return new MemberCallback0_5<Object,Arg0,Arg1,Arg2,Arg3,Arg4>(
     true,
     f,
@@ -2650,7 +2650,7 @@ Callback5<Arg0, Arg1, Arg2, Arg3, Arg4>* NewPermanentCallback(InputObject* objec
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5) {
+inline Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5) {
   return new FunctionCallback6_0<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     false,
     f,
@@ -2658,7 +2658,7 @@ Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5) {
+inline Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5) {
   return new FunctionCallback6_0<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     true,
     f,
@@ -2666,7 +2666,7 @@ Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename InputObject=Object>
-Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5) {
+inline Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5) {
   return new MemberCallback6_0<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     false,
     f,
@@ -2675,7 +2675,7 @@ Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1,
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename InputObject=Object>
-Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5) {
+inline Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5) {
   return new MemberCallback6_0<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     true,
     f,
@@ -2684,7 +2684,7 @@ Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, A
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-Callback1<Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
+inline Callback1<Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
   return new FunctionCallback5_1<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     false,
     f,
@@ -2692,7 +2692,7 @@ Callback1<Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-Callback1<Arg5>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
+inline Callback1<Arg5>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
   return new FunctionCallback5_1<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     true,
     f,
@@ -2700,7 +2700,7 @@ Callback1<Arg5>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2,
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename InputObject=Object>
-Callback1<Arg5>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
+inline Callback1<Arg5>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
   return new MemberCallback5_1<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     false,
     f,
@@ -2709,7 +2709,7 @@ Callback1<Arg5>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename InputObject=Object>
-Callback1<Arg5>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
+inline Callback1<Arg5>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
   return new MemberCallback5_1<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     true,
     f,
@@ -2718,7 +2718,7 @@ Callback1<Arg5>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-Callback2<Arg4, Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+inline Callback2<Arg4, Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
   return new FunctionCallback4_2<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     false,
     f,
@@ -2726,7 +2726,7 @@ Callback2<Arg4, Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Ar
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-Callback2<Arg4, Arg5>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+inline Callback2<Arg4, Arg5>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
   return new FunctionCallback4_2<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     true,
     f,
@@ -2734,7 +2734,7 @@ Callback2<Arg4, Arg5>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename InputObject=Object>
-Callback2<Arg4, Arg5>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+inline Callback2<Arg4, Arg5>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
   return new MemberCallback4_2<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     false,
     f,
@@ -2743,7 +2743,7 @@ Callback2<Arg4, Arg5>* NewCallback(InputObject* object, void(Object::*f)(Arg0 ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename InputObject=Object>
-Callback2<Arg4, Arg5>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+inline Callback2<Arg4, Arg5>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
   return new MemberCallback4_2<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     true,
     f,
@@ -2752,7 +2752,7 @@ Callback2<Arg4, Arg5>* NewPermanentCallback(InputObject* object, void(Object::*f
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-Callback3<Arg3, Arg4, Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Callback3<Arg3, Arg4, Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new FunctionCallback3_3<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     false,
     f,
@@ -2760,7 +2760,7 @@ Callback3<Arg3, Arg4, Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 ar
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-Callback3<Arg3, Arg4, Arg5>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Callback3<Arg3, Arg4, Arg5>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new FunctionCallback3_3<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     true,
     f,
@@ -2768,7 +2768,7 @@ Callback3<Arg3, Arg4, Arg5>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename InputObject=Object>
-Callback3<Arg3, Arg4, Arg5>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Callback3<Arg3, Arg4, Arg5>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new MemberCallback3_3<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     false,
     f,
@@ -2777,7 +2777,7 @@ Callback3<Arg3, Arg4, Arg5>* NewCallback(InputObject* object, void(Object::*f)(A
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename InputObject=Object>
-Callback3<Arg3, Arg4, Arg5>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Callback3<Arg3, Arg4, Arg5>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new MemberCallback3_3<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     true,
     f,
@@ -2786,7 +2786,7 @@ Callback3<Arg3, Arg4, Arg5>* NewPermanentCallback(InputObject* object, void(Obje
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-Callback4<Arg2, Arg3, Arg4, Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1) {
+inline Callback4<Arg2, Arg3, Arg4, Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1) {
   return new FunctionCallback2_4<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     false,
     f,
@@ -2794,7 +2794,7 @@ Callback4<Arg2, Arg3, Arg4, Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, A
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-Callback4<Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1) {
+inline Callback4<Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1) {
   return new FunctionCallback2_4<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     true,
     f,
@@ -2802,7 +2802,7 @@ Callback4<Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename InputObject=Object>
-Callback4<Arg2, Arg3, Arg4, Arg5>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1) {
+inline Callback4<Arg2, Arg3, Arg4, Arg5>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1) {
   return new MemberCallback2_4<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     false,
     f,
@@ -2811,7 +2811,7 @@ Callback4<Arg2, Arg3, Arg4, Arg5>* NewCallback(InputObject* object, void(Object:
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename InputObject=Object>
-Callback4<Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1) {
+inline Callback4<Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0, Arg1 arg1) {
   return new MemberCallback2_4<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     true,
     f,
@@ -2820,7 +2820,7 @@ Callback4<Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(InputObject* object, voi
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-Callback5<Arg1, Arg2, Arg3, Arg4, Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0) {
+inline Callback5<Arg1, Arg2, Arg3, Arg4, Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0) {
   return new FunctionCallback1_5<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     false,
     f,
@@ -2828,7 +2828,7 @@ Callback5<Arg1, Arg2, Arg3, Arg4, Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 a
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-Callback5<Arg1, Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0) {
+inline Callback5<Arg1, Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0) {
   return new FunctionCallback1_5<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     true,
     f,
@@ -2836,7 +2836,7 @@ Callback5<Arg1, Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(void (*f)(Arg0 arg
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename InputObject=Object>
-Callback5<Arg1, Arg2, Arg3, Arg4, Arg5>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0) {
+inline Callback5<Arg1, Arg2, Arg3, Arg4, Arg5>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0) {
   return new MemberCallback1_5<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     false,
     f,
@@ -2845,7 +2845,7 @@ Callback5<Arg1, Arg2, Arg3, Arg4, Arg5>* NewCallback(InputObject* object, void(O
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename InputObject=Object>
-Callback5<Arg1, Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0) {
+inline Callback5<Arg1, Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5), Arg0 arg0) {
   return new MemberCallback1_5<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     true,
     f,
@@ -2854,21 +2854,21 @@ Callback5<Arg1, Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(InputObject* objec
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-Callback6<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5)) {
+inline Callback6<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5)) {
   return new FunctionCallback0_6<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     false,
     f);
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-Callback6<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5)) {
+inline Callback6<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5)) {
   return new FunctionCallback0_6<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     true,
     f);
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename InputObject=Object>
-Callback6<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5)) {
+inline Callback6<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5)) {
   return new MemberCallback0_6<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     false,
     f,
@@ -2876,7 +2876,7 @@ Callback6<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5>* NewCallback(InputObject* object, 
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename InputObject=Object>
-Callback6<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5)) {
+inline Callback6<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5)) {
   return new MemberCallback0_6<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5>(
     true,
     f,
@@ -2884,7 +2884,7 @@ Callback6<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5>* NewPermanentCallback(InputObject*
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6) {
+inline Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6) {
   return new FunctionCallback7_0<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     false,
     f,
@@ -2892,7 +2892,7 @@ Closure* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6) {
+inline Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6) {
   return new FunctionCallback7_0<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     true,
     f,
@@ -2900,7 +2900,7 @@ Closure* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6, typename InputObject=Object>
-Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6) {
+inline Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6) {
   return new MemberCallback7_0<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     false,
     f,
@@ -2909,7 +2909,7 @@ Closure* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1,
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6, typename InputObject=Object>
-Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6) {
+inline Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6) {
   return new MemberCallback7_0<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     true,
     f,
@@ -2918,7 +2918,7 @@ Closure* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, A
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-Callback1<Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5) {
+inline Callback1<Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5) {
   return new FunctionCallback6_1<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     false,
     f,
@@ -2926,7 +2926,7 @@ Callback1<Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-Callback1<Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5) {
+inline Callback1<Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5) {
   return new FunctionCallback6_1<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     true,
     f,
@@ -2934,7 +2934,7 @@ Callback1<Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2,
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6, typename InputObject=Object>
-Callback1<Arg6>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5) {
+inline Callback1<Arg6>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5) {
   return new MemberCallback6_1<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     false,
     f,
@@ -2943,7 +2943,7 @@ Callback1<Arg6>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6, typename InputObject=Object>
-Callback1<Arg6>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5) {
+inline Callback1<Arg6>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5) {
   return new MemberCallback6_1<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     true,
     f,
@@ -2952,7 +2952,7 @@ Callback1<Arg6>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-Callback2<Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
+inline Callback2<Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
   return new FunctionCallback5_2<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     false,
     f,
@@ -2960,7 +2960,7 @@ Callback2<Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Ar
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-Callback2<Arg5, Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
+inline Callback2<Arg5, Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
   return new FunctionCallback5_2<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     true,
     f,
@@ -2968,7 +2968,7 @@ Callback2<Arg5, Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6, typename InputObject=Object>
-Callback2<Arg5, Arg6>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
+inline Callback2<Arg5, Arg6>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
   return new MemberCallback5_2<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     false,
     f,
@@ -2977,7 +2977,7 @@ Callback2<Arg5, Arg6>* NewCallback(InputObject* object, void(Object::*f)(Arg0 ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6, typename InputObject=Object>
-Callback2<Arg5, Arg6>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
+inline Callback2<Arg5, Arg6>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
   return new MemberCallback5_2<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     true,
     f,
@@ -2986,7 +2986,7 @@ Callback2<Arg5, Arg6>* NewPermanentCallback(InputObject* object, void(Object::*f
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-Callback3<Arg4, Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+inline Callback3<Arg4, Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
   return new FunctionCallback4_3<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     false,
     f,
@@ -2994,7 +2994,7 @@ Callback3<Arg4, Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 ar
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-Callback3<Arg4, Arg5, Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+inline Callback3<Arg4, Arg5, Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
   return new FunctionCallback4_3<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     true,
     f,
@@ -3002,7 +3002,7 @@ Callback3<Arg4, Arg5, Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6, typename InputObject=Object>
-Callback3<Arg4, Arg5, Arg6>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+inline Callback3<Arg4, Arg5, Arg6>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
   return new MemberCallback4_3<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     false,
     f,
@@ -3011,7 +3011,7 @@ Callback3<Arg4, Arg5, Arg6>* NewCallback(InputObject* object, void(Object::*f)(A
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6, typename InputObject=Object>
-Callback3<Arg4, Arg5, Arg6>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+inline Callback3<Arg4, Arg5, Arg6>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
   return new MemberCallback4_3<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     true,
     f,
@@ -3020,7 +3020,7 @@ Callback3<Arg4, Arg5, Arg6>* NewPermanentCallback(InputObject* object, void(Obje
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-Callback4<Arg3, Arg4, Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Callback4<Arg3, Arg4, Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new FunctionCallback3_4<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     false,
     f,
@@ -3028,7 +3028,7 @@ Callback4<Arg3, Arg4, Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, A
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-Callback4<Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Callback4<Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new FunctionCallback3_4<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     true,
     f,
@@ -3036,7 +3036,7 @@ Callback4<Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6, typename InputObject=Object>
-Callback4<Arg3, Arg4, Arg5, Arg6>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Callback4<Arg3, Arg4, Arg5, Arg6>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new MemberCallback3_4<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     false,
     f,
@@ -3045,7 +3045,7 @@ Callback4<Arg3, Arg4, Arg5, Arg6>* NewCallback(InputObject* object, void(Object:
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6, typename InputObject=Object>
-Callback4<Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
+inline Callback4<Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1, Arg2 arg2) {
   return new MemberCallback3_4<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     true,
     f,
@@ -3054,7 +3054,7 @@ Callback4<Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(InputObject* object, voi
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-Callback5<Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1) {
+inline Callback5<Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1) {
   return new FunctionCallback2_5<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     false,
     f,
@@ -3062,7 +3062,7 @@ Callback5<Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 a
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-Callback5<Arg2, Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1) {
+inline Callback5<Arg2, Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1) {
   return new FunctionCallback2_5<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     true,
     f,
@@ -3070,7 +3070,7 @@ Callback5<Arg2, Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(void (*f)(Arg0 arg
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6, typename InputObject=Object>
-Callback5<Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1) {
+inline Callback5<Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1) {
   return new MemberCallback2_5<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     false,
     f,
@@ -3079,7 +3079,7 @@ Callback5<Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(InputObject* object, void(O
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6, typename InputObject=Object>
-Callback5<Arg2, Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1) {
+inline Callback5<Arg2, Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0, Arg1 arg1) {
   return new MemberCallback2_5<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     true,
     f,
@@ -3088,7 +3088,7 @@ Callback5<Arg2, Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(InputObject* objec
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-Callback6<Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0) {
+inline Callback6<Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0) {
   return new FunctionCallback1_6<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     false,
     f,
@@ -3096,7 +3096,7 @@ Callback6<Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, 
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-Callback6<Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0) {
+inline Callback6<Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0) {
   return new FunctionCallback1_6<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     true,
     f,
@@ -3104,7 +3104,7 @@ Callback6<Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(void (*f)(Ar
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6, typename InputObject=Object>
-Callback6<Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0) {
+inline Callback6<Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0) {
   return new MemberCallback1_6<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     false,
     f,
@@ -3113,7 +3113,7 @@ Callback6<Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(InputObject* object, 
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6, typename InputObject=Object>
-Callback6<Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0) {
+inline Callback6<Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6), Arg0 arg0) {
   return new MemberCallback1_6<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     true,
     f,
@@ -3122,21 +3122,21 @@ Callback6<Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(InputObject*
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-Callback7<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6)) {
+inline Callback7<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6)) {
   return new FunctionCallback0_7<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     false,
     f);
 }
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-Callback7<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6)) {
+inline Callback7<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(void (*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6)) {
   return new FunctionCallback0_7<Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     true,
     f);
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6, typename InputObject=Object>
-Callback7<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6)) {
+inline Callback7<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6)) {
   return new MemberCallback0_7<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     false,
     f,
@@ -3144,7 +3144,7 @@ Callback7<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewCallback(InputObject* ob
 }
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6, typename InputObject=Object>
-Callback7<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6)) {
+inline Callback7<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6>* NewPermanentCallback(InputObject* object, void(Object::*f)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6)) {
   return new MemberCallback0_7<Object,Arg0,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6>(
     true,
     f,

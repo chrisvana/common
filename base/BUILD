@@ -59,6 +59,7 @@
  { "cc_library": {
      "name" : "base_nomalloc",
      "dependencies": [ ":atomicops",
+                       ":callback",
                        ":flags",
                        ":init",
                        ":macros",
