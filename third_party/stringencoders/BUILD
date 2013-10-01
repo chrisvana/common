@@ -1,9 +1,11 @@
 [
  { "autoconf": {
      "name": "stringencoders_conf",
-     "configure_env": [
-       "USER_CFLAGS=-Wno-error=unused-but-set-variable"
-     ],
+     "gcc" : {
+       "configure_env": [
+         "USER_CFLAGS=-Wno-error=unused-but-set-variable"
+        ]
+     },
      "outs": [ "lib/libmodpbase64.a" ]
  } },
  { "cc_library": {
