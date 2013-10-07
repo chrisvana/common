@@ -30,13 +30,15 @@ bool ContainsValue(const Container& c, const Value& v) {
   return false;
 }
 
-template <typename Container, typename Key, typename Value>
+template <typename Container, typename Key,
+          typename Value=typename Container::mapped_type>
 Value FindWithDefault(const Container& c, const Key& k, const Value& v) {
   auto it = c.find(k);
   return (it == c.end() ? v : it->second);
 }
 
-template <typename Container, typename Key, typename Value>
+template <typename Container, typename Key,
+          typename Value=typename Container::mapped_type>
 Value FindPtrOrNull(const Container& c, const Key& k) {
   auto it = c.find(k);
   return (it == c.end() ? nullptr : it->second);
