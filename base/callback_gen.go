@@ -21,15 +21,15 @@ func OutputHeader() {
 // you cannot declare them ahead of time (for anything with an argument and an
 // object) so passing the callbacks around is not tenable.
 
-#ifndef _COMMON_BASE_CALLBACK_H__
-#define _COMMON_BASE_CALLBACK_H__
+#ifndef _COMMON_BASE_CALLBACK_GEN_H__
+#define _COMMON_BASE_CALLBACK_GEN_H__
 
 #include "common/base/macros.h"`)
 }
 
 func OutputFooter() {
   fmt.Println("")
-  fmt.Println("#endif  // _COMMON_BASE_CALLBACK_H__")
+  fmt.Println("#endif  // _COMMON_BASE_CALLBACK_GEN_H__")
 }
 
 func GetTemplateArgs(num_args int, object bool, final_object bool) string {

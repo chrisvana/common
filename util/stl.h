@@ -60,23 +60,19 @@ void DeleteValues(T* t) {
 class ElementDeleter {
  public:
   template <typename T>
-  explicit ElementDeleter(T* t) : func_(NewCallback(&DeleteElements<T>, t)) {}
-  ~ElementDeleter() {
-    func_->Run();
-  }
+  explicit ElementDeleter(T* t) : runner_(NewCallback(&DeleteElements<T>, t)) {}
+  ~ElementDeleter() {}
  private:
-  Closure* func_;
+  AutoClosureRunner runner_;
 };
 
 class ValueDeleter {
  public:
   template <typename T>
-  explicit ValueDeleter(T* t) :func_(NewCallback(&DeleteValues<T>, t)) {}
-  ~ValueDeleter() {
-    func_->Run();
-  }
+  explicit ValueDeleter(T* t) :runner_(NewCallback(&DeleteValues<T>, t)) {}
+  ~ValueDeleter() {}
  private:
-  Closure* func_;
+  AutoClosureRunner runner_;
 };
 
 #endif  // _COMMON_UTIL_STL_H__
