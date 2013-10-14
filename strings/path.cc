@@ -80,6 +80,12 @@ std::string CurrentPath() {
   return "";
 }
 
+std::string GetRelativePath(const StringPiece& dir, const StringPiece& path) {
+  return strings::JoinPath(
+      strings::Repeat("../", strings::NumPathComponents(dir)),
+      path);
+}
+
 int NumPathComponents(const StringPiece& path) {
   std::string tmp = CleanPath(path);
   int count = 0;
