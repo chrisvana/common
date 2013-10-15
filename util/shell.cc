@@ -7,6 +7,10 @@
 #include <sys/wait.h>
 #include <string>
 
+#include <iostream>
+using std::cout;
+using std::endl;
+
 using std::string;
 
 namespace util {
@@ -73,12 +77,12 @@ int Execute(const string& stdin,
   if (pid == 0) {
     // Redirect pipe to stdin.
     if (dup2(in.In(), 0) == -1) {
-      return -1;
+      _exit(EXIT_FAILURE);
     }
 
     // Redirect pipe to stdout.
     if (dup2(out.Out(), 1) == -1) {
-      return -1;
+      _exit(EXIT_FAILURE);
     }
 
     // Not needed anymore.
@@ -90,13 +94,16 @@ int Execute(const string& stdin,
     } else {
       _exit(EXIT_FAILURE);
     }
+
+    // Should never get here.
     return -1;
   } else {
     in.CloseIn();
     out.CloseOut();
-    if (write(in.Out(), stdin.data(), stdin.size()) == -1) {
-      // what to do?
+    if (write(in.Out(), stdin.c_str(), stdin.size()) == -1) {
+      // Do something?
     }
+    in.CloseOut();  // finished writing.
     const int kBufferSize = 256;
     char buffer[kBufferSize];
     size_t size ;
