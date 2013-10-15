@@ -106,7 +106,7 @@ int Execute(const string& stdin,
       }
     }
     int child_status;
-    int pid_out = waitpid(pid, &child_status, 0);
+    waitpid(pid, &child_status, 0);
     if (WIFEXITED(child_status)) {
       return WEXITSTATUS(child_status);
     }
