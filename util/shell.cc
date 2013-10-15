@@ -84,7 +84,12 @@ int Execute(const string& stdin,
     // Not needed anymore.
     in.Close();
     out.Close();
-    exit(system(command.c_str()));
+    int status = system(command.c_str());
+    if (WIFEXITED(status)) {
+      _exit(WEXITSTATUS(status));
+    } else {
+      _exit(EXIT_FAILURE);
+    }
     return -1;
   } else {
     in.CloseIn();
@@ -101,8 +106,11 @@ int Execute(const string& stdin,
       }
     }
     int child_status;
-    waitpid(pid, &child_status, 0);
-    return child_status;
+    int pid_out = waitpid(pid, &child_status, 0);
+    if (WIFEXITED(child_status)) {
+      return WEXITSTATUS(child_status);
+    }
+    return -1;
   }
 }
 
