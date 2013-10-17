@@ -1,12 +1,12 @@
 [
 { "autoconf": {
     "name": "perf_gen",
-    "outs": [ "lib/libprofiler.a",
-              "lib/libtcmalloc_and_profiler.a",
-              "lib/libtcmalloc_minimal.a",
-              "lib/libtcmalloc.a",
-              "lib/libtcmalloc_debug.a",
-              "lib/libtcmalloc_minimal_debug.a"
+    "outs": [ "$GEN_DIR/lib/libprofiler.a",
+              "$GEN_DIR/lib/libtcmalloc_and_profiler.a",
+              "$GEN_DIR/lib/libtcmalloc_minimal.a",
+              "$GEN_DIR/lib/libtcmalloc.a",
+              "$GEN_DIR/lib/libtcmalloc_debug.a",
+              "$GEN_DIR/lib/libtcmalloc_minimal_debug.a"
     ],
     "configure_env" : [
       "USER_CXXFLAGS=-msse4"

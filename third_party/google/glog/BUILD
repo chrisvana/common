@@ -1,7 +1,7 @@
 [
 { "autoconf": {
     "name": "glog_gen",
-    "outs": [ "lib/libglog.a" ],
+    "outs": [ "$GEN_DIR/lib/libglog.a" ],
     "configure_args": [
       "--with-gflagssrc=\"$ROOT_DIR/$GFLAGS_SRC_ROOT\"",
       "--with-gflagslib=\"$ROOT_DIR/$GFLAGS_OBJS\""
