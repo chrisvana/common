@@ -57,7 +57,7 @@
    }
  },
  { "cc_library": {
-     "name" : "base_nomalloc",
+     "name" : "base",
      "dependencies": [ ":atomicops",
                        ":callback",
                        ":flags",
@@ -77,8 +77,8 @@
  } },
 
  { "cc_library": {
-     "name" : "base",
-     "dependencies": [ ":base_nomalloc", ":tcmalloc_perf" ]
+     "name" : "base_tcmalloc",
+     "dependencies": [ ":base", ":tcmalloc_perf" ]
    }
  }
 ]
