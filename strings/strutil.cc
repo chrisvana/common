@@ -12,6 +12,7 @@
 #include "common/strings/stringpiece.h"
 #include "common/strings/strutil.h"
 #include "common/third_party/stringencoders/src/modp_b64.h"
+#include "common/third_party/stringencoders/src/modp_b16.h"
 #include "common/third_party/stringencoders/src/modp_b64w.h"
 
 namespace strings {
@@ -96,6 +97,13 @@ std::string ReplaceAll(const StringPiece& input,
     current = current.substr(pos + original.size());
   }
   return out;
+}
+
+std::string Base16Encode(const StringPiece& input) {
+  return modp::b16_encode(input.data(), input.size());
+}
+std::string Base16Decode(const StringPiece& input) {
+  return modp::b16_decode(input.data(), input.size());
 }
 
 std::string Base64Encode(const StringPiece& input) {

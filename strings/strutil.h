@@ -37,6 +37,8 @@ std::vector<std::string> SplitString(const StringPiece& base,
 std::string Repeat(const StringPiece& input, int n_times);
 
 // Escaping
+std::string Base16Encode(const StringPiece& input);
+std::string Base16Decode(const StringPiece& input);
 std::string Base64Encode(const StringPiece& input);
 std::string Base64Decode(const StringPiece& input);
 std::string WebSafeBase64Encode(const StringPiece& input);
