@@ -16,6 +16,7 @@
      "env": {
        "GFLAGS_SRC_ROOT" : "$SRC_DIR/src",
        "GFLAGS_OBJS" : "$OBJ_DIR/src/*.o"
-     }
+     },
+     "licenses": [ "http://opensource.org/licenses/BSD-3-Clause" ]
 } }
 ]

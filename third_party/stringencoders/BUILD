@@ -6,7 +6,8 @@
          "USER_CFLAGS=-Wno-error=unused-but-set-variable"
         ]
      },
-     "outs": [ "$GEN_DIR/lib/libmodpbase64.a" ]
+     "outs": [ "$GEN_DIR/lib/libmodpbase64.a" ],
+     "licenses": [ "http://opensource.org/licenses/BSD-3-Clause" ]
  } },
  { "cc_library": {
     "name": "stringencoders",

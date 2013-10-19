@@ -6,7 +6,8 @@
       "--with-gflagssrc=\"$ROOT_DIR/$GFLAGS_SRC_ROOT\"",
       "--with-gflagslib=\"$ROOT_DIR/$GFLAGS_OBJS\""
     ],
-    "dependencies": [ "//common/third_party/google/gflags:gflags" ]
+    "dependencies": [ "//common/third_party/google/gflags:gflags" ],
+    "licenses": [ "http://opensource.org/licenses/BSD-3-Clause" ]
 } },
 
 { "cc_library": {
