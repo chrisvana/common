@@ -10,6 +10,7 @@ namespace {
 
 TEST(StringsPath, JoinPath) {
   EXPECT_EQ("/this/is/a/path", JoinPath("/this/is/a", "path"));
+  EXPECT_EQ("/this/is/a/path", JoinPath("../random", "/this/is/a/path"));
 }
 
 TEST(StringsPath, CleanPath) {

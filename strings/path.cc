@@ -17,6 +17,8 @@ namespace strings {
 std::string JoinPath(const StringPiece& a, const StringPiece& b) {
   if (a.empty()) {
     return CleanPath(b);
+  } else if (HasPrefix(b, "/")) {
+    return CleanPath(b);
   }
   return CleanPath(a.as_string() + "/" + b.as_string());
 }
