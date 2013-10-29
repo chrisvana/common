@@ -1282,11 +1282,11 @@ PROFILER_UNITTEST_SRCS = src/tests/profiler_unittest.cc \
                          src/tests/testutil.h src/tests/testutil.cc \
                          $(PROFILER_UNITTEST_INCLUDES)
 profiler1_unittest_SOURCES = $(PROFILER_UNITTEST_SRCS)
-profiler1_unittest_CXXFLAGS = -g -DNO_THREADS $(AM_CXXFLAGS)
-profiler1_unittest_LDADD = $(LIBPROFILER)
+profiler1_unittest_CXXFLAGS = -g -DNO_THREADS $(AM_CXXFLAGS) $(GFLAGS_CFLAGS)
+profiler1_unittest_LDADD = $(LIBPROFILER) $(GFLAGS_LIBS)
 profiler2_unittest_SOURCES = $(PROFILER_UNITTEST_SRCS)
-profiler2_unittest_CXXFLAGS = -g -DNO_THREADS $(AM_CXXFLAGS)
-profiler2_unittest_LDADD = -lstacktrace -lprofiler
+profiler2_unittest_CXXFLAGS = -g -DNO_THREADS $(AM_CXXFLAGS) $(GFLAGS_CFLAGS)
+profiler2_unittest_LDADD = -lstacktrace -lprofiler $(GFLAGS_LIBS)
 # We depend on -lprofiler but haven't yet said how to build it.  Do so now.
 profiler2_unittest_DEPENDENCIES = $(LIBPROFILER)
 profiler3_unittest_SOURCES = $(PROFILER_UNITTEST_SRCS)
