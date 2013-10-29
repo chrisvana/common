@@ -306,7 +306,6 @@ bin_PROGRAMS =
 @WITH_CPU_PROFILER_TRUE@am__append_66 = profiler1_unittest profiler2_unittest profiler3_unittest \
 @WITH_CPU_PROFILER_TRUE@                   profiler4_unittest
 
-@WITH_CPU_PROFILER_FALSE@profiler2_unittest_DEPENDENCIES =
 
 ### Documentation
 @WITH_CPU_PROFILER_TRUE@am__append_67 = doc/cpuprofile.html \
@@ -1337,7 +1336,7 @@ am__profiler1_unittest_SOURCES_DIST = src/tests/profiler_unittest.cc \
 @WITH_CPU_PROFILER_TRUE@	$(am__objects_32)
 profiler1_unittest_OBJECTS = $(am_profiler1_unittest_OBJECTS)
 @WITH_CPU_PROFILER_TRUE@profiler1_unittest_DEPENDENCIES =  \
-@WITH_CPU_PROFILER_TRUE@	$(LIBPROFILER)
+@WITH_CPU_PROFILER_TRUE@	$(LIBPROFILER) $(am__DEPENDENCIES_1)
 profiler1_unittest_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CXXLD) \
 	$(profiler1_unittest_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
@@ -3151,11 +3150,11 @@ thread_dealloc_unittest_LDADD = $(LIBTCMALLOC_MINIMAL) $(PTHREAD_LIBS) $(GFLAGS_
 @WITH_CPU_PROFILER_TRUE@                         $(PROFILER_UNITTEST_INCLUDES)
 
 @WITH_CPU_PROFILER_TRUE@profiler1_unittest_SOURCES = $(PROFILER_UNITTEST_SRCS)
-@WITH_CPU_PROFILER_TRUE@profiler1_unittest_CXXFLAGS = -g -DNO_THREADS $(AM_CXXFLAGS)
-@WITH_CPU_PROFILER_TRUE@profiler1_unittest_LDADD = $(LIBPROFILER)
+@WITH_CPU_PROFILER_TRUE@profiler1_unittest_CXXFLAGS = -g -DNO_THREADS $(AM_CXXFLAGS) $(GFLAGS_CFLAGS)
+@WITH_CPU_PROFILER_TRUE@profiler1_unittest_LDADD = $(LIBPROFILER) $(GFLAGS_LIBS)
 @WITH_CPU_PROFILER_TRUE@profiler2_unittest_SOURCES = $(PROFILER_UNITTEST_SRCS)
-@WITH_CPU_PROFILER_TRUE@profiler2_unittest_CXXFLAGS = -g -DNO_THREADS $(AM_CXXFLAGS)
-@WITH_CPU_PROFILER_TRUE@profiler2_unittest_LDADD = -lstacktrace -lprofiler
+@WITH_CPU_PROFILER_TRUE@profiler2_unittest_CXXFLAGS = -g -DNO_THREADS $(AM_CXXFLAGS) $(GFLAGS_CFLAGS)
+@WITH_CPU_PROFILER_TRUE@profiler2_unittest_LDADD = -lstacktrace -lprofiler $(GFLAGS_LIBS)
 # We depend on -lprofiler but haven't yet said how to build it.  Do so now.
 @WITH_CPU_PROFILER_TRUE@profiler2_unittest_DEPENDENCIES = $(LIBPROFILER)
 @WITH_CPU_PROFILER_TRUE@profiler3_unittest_SOURCES = $(PROFILER_UNITTEST_SRCS)
