@@ -1493,7 +1493,7 @@ am__simple_compat_test_SOURCES_DIST = src/tests/simple_compat_test.cc \
 @WITH_HEAP_PROFILER_TRUE@	$(am__objects_1)
 simple_compat_test_OBJECTS = $(am_simple_compat_test_OBJECTS)
 @WITH_HEAP_PROFILER_TRUE@simple_compat_test_DEPENDENCIES =  \
-@WITH_HEAP_PROFILER_TRUE@	$(LIBTCMALLOC)
+@WITH_HEAP_PROFILER_TRUE@	$(LIBTCMALLOC) $(am__DEPENDENCIES_1)
 simple_compat_test_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CXXLD) \
 	$(AM_CXXFLAGS) $(CXXFLAGS) $(simple_compat_test_LDFLAGS) \
@@ -3023,8 +3023,8 @@ thread_dealloc_unittest_LDADD = $(LIBTCMALLOC_MINIMAL) $(PTHREAD_LIBS) $(GFLAGS_
 @WITH_HEAP_PROFILER_TRUE@simple_compat_test_SOURCES = src/tests/simple_compat_test.cc \
 @WITH_HEAP_PROFILER_TRUE@                             $(googleinclude_HEADERS)
 
-@WITH_HEAP_PROFILER_TRUE@simple_compat_test_LDFLAGS = $(TCMALLOC_FLAGS)
-@WITH_HEAP_PROFILER_TRUE@simple_compat_test_LDADD = $(LIBTCMALLOC)
+@WITH_HEAP_PROFILER_TRUE@simple_compat_test_LDFLAGS = $(TCMALLOC_FLAGS) $(GFLAGS_CFLAGS)
+@WITH_HEAP_PROFILER_TRUE@simple_compat_test_LDADD = $(LIBTCMALLOC) $(GFLAGS_LIBS)
 @WITH_HEAP_CHECKER_TRUE@heap_checker_unittest_sh_SOURCES = src/tests/heap-checker_unittest.sh
 @WITH_HEAP_CHECKER_TRUE@heap_checker_death_unittest_sh_SOURCES = src/tests/heap-checker-death_unittest.sh
 @WITH_HEAP_CHECKER_TRUE@HEAP_CHECKER_UNITTEST_INCLUDES = src/config_for_unittests.h \
