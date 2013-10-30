@@ -1057,8 +1057,8 @@ heap_profiler_unittest_LDADD = $(LIBTCMALLOC) $(PTHREAD_LIBS) $(GFLAGS_LIBS)
 TESTS += simple_compat_test
 simple_compat_test_SOURCES = src/tests/simple_compat_test.cc \
                              $(googleinclude_HEADERS)
-simple_compat_test_LDFLAGS = $(TCMALLOC_FLAGS)
-simple_compat_test_LDADD = $(LIBTCMALLOC)
+simple_compat_test_LDFLAGS = $(TCMALLOC_FLAGS) $(GFLAGS_CFLAGS)
+simple_compat_test_LDADD = $(LIBTCMALLOC) $(GFLAGS_LIBS)
 
 endif WITH_HEAP_PROFILER
 
