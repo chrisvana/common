@@ -1547,7 +1547,8 @@ am__tcmalloc_and_profiler_unittest_SOURCES_DIST =  \
 @WITH_CPU_PROFILER_TRUE@@WITH_HEAP_PROFILER_OR_CHECKER_TRUE@am_tcmalloc_and_profiler_unittest_OBJECTS = $(am__objects_40)
 tcmalloc_and_profiler_unittest_OBJECTS =  \
 	$(am_tcmalloc_and_profiler_unittest_OBJECTS)
-@WITH_CPU_PROFILER_TRUE@@WITH_HEAP_PROFILER_OR_CHECKER_TRUE@tcmalloc_and_profiler_unittest_DEPENDENCIES = libtcmalloc_and_profiler.la
+@WITH_CPU_PROFILER_TRUE@@WITH_HEAP_PROFILER_OR_CHECKER_TRUE@tcmalloc_and_profiler_unittest_DEPENDENCIES = libtcmalloc_and_profiler.la \
+@WITH_CPU_PROFILER_TRUE@@WITH_HEAP_PROFILER_OR_CHECKER_TRUE@	$(am__DEPENDENCIES_1)
 tcmalloc_and_profiler_unittest_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CXXLD) \
 	$(tcmalloc_and_profiler_unittest_CXXFLAGS) $(CXXFLAGS) \
@@ -3182,7 +3183,7 @@ thread_dealloc_unittest_LDADD = $(LIBTCMALLOC_MINIMAL) $(PTHREAD_LIBS) $(GFLAGS_
 @WITH_CPU_PROFILER_TRUE@@WITH_HEAP_PROFILER_OR_CHECKER_TRUE@tcmalloc_and_profiler_unittest_SOURCES = $(tcmalloc_both_unittest_srcs)
 @WITH_CPU_PROFILER_TRUE@@WITH_HEAP_PROFILER_OR_CHECKER_TRUE@tcmalloc_and_profiler_unittest_CXXFLAGS = $(tcmalloc_both_unittest_cflags)
 @WITH_CPU_PROFILER_TRUE@@WITH_HEAP_PROFILER_OR_CHECKER_TRUE@tcmalloc_and_profiler_unittest_LDFLAGS = $(tcmalloc_both_unittest_lflags)
-@WITH_CPU_PROFILER_TRUE@@WITH_HEAP_PROFILER_OR_CHECKER_TRUE@tcmalloc_and_profiler_unittest_LDADD = libtcmalloc_and_profiler.la
+@WITH_CPU_PROFILER_TRUE@@WITH_HEAP_PROFILER_OR_CHECKER_TRUE@tcmalloc_and_profiler_unittest_LDADD = libtcmalloc_and_profiler.la $(GFLAGS_LIBS)
 
 # http://linux.die.net/man/1/pkg-config, http://pkg-config.freedesktop.org/wiki
 pkgconfigdir = $(libdir)/pkgconfig
