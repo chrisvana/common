@@ -1340,7 +1340,7 @@ TESTS += tcmalloc_and_profiler_unittest
 tcmalloc_and_profiler_unittest_SOURCES = $(tcmalloc_both_unittest_srcs)
 tcmalloc_and_profiler_unittest_CXXFLAGS = $(tcmalloc_both_unittest_cflags)
 tcmalloc_and_profiler_unittest_LDFLAGS = $(tcmalloc_both_unittest_lflags)
-tcmalloc_and_profiler_unittest_LDADD = libtcmalloc_and_profiler.la
+tcmalloc_and_profiler_unittest_LDADD = libtcmalloc_and_profiler.la $(GFLAGS_LIBS)
 
 LIBS_TO_WEAKEN += libtcmalloc_and_profiler.la
 
