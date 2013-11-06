@@ -11,11 +11,19 @@
     "configure_env" : [
       "USER_CXXFLAGS=-msse4"
     ],
-    "configure_args": [
-      "--with-gflagssrc=\"$ROOT_DIR/$GFLAGS_SRC_ROOT\"",
-      "--with-gflagslib=\"$ROOT_DIR/$GFLAGS_OBJS\""
-    ],
-    "dependencies": [ "//common/third_party/google/gflags:gflags" ],
+    // TODO(cvanarsdale): This doesn't seem to work on all platforms.
+    //  *** Warning: Linking the shared library libglog.la against the
+    //  non-libtool *** objects <cut> gflags_reporting.cc.o is not portable!
+    //  /usr/bin/ld: <cut> gflags.cc.o: relocation R_X86_64_32S against
+    //     `.rodata' can not be used when making a shared object; recompile
+    //     with -fPIC
+    //  <cut>/gflags.cc.o: error adding symbols: Bad value
+    //  collect2: error: ld returned 1 exit status
+    // "configure_args": [
+    //   "--with-gflagssrc=\"$ROOT_DIR/$GFLAGS_SRC_ROOT\"",
+    //   "--with-gflagslib=\"$ROOT_DIR/$GFLAGS_OBJS\""
+    // ],
+    // "dependencies": [ "//common/third_party/google/gflags:gflags" ],
     "licenses": [ "http://opensource.org/licenses/BSD-3-Clause" ]
 } },
 { "cc_library": {
