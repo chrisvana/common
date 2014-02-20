@@ -19,6 +19,9 @@ void WriteFileOrDie(const std::string& filename,
 // Globbing
 bool Glob(const std::string& glob, std::vector<std::string>* out);
 
+// Others.
+bool DeleteFile(const std::string& filename);
+
 }  // namespace file
 
 #endif // _COMMON_FILE_FILEUTIL_H__

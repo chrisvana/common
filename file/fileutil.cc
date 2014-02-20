@@ -2,6 +2,7 @@
 // Author: Christopher Van Arsdale
 
 #include <glob.h>
+#include <cstdio>
 #include <string.h>
 #include <fstream>
 #include <string>
@@ -47,6 +48,10 @@ bool Glob(const std::string& glob_pattern,
   }
   globfree(&files);
   return status != GLOB_ERR;
+}
+
+bool DeleteFile(const std::string& filename) {
+  return std::remove(filename.c_str()) != 0;
 }
 
 }  // namespace file
