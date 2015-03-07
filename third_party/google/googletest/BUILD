@@ -11,6 +11,8 @@
 { "cc_library": {
     "name": "googletest_main",
     "cc_sources": [ "src/gtest_main.cc" ],
-    "dependencies": [ ":googletest" ]
+    "dependencies": [ ":googletest",
+                      "//common/base:init"
+     ]
 } }
 ]
