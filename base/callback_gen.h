@@ -293,7 +293,7 @@ class MemberCallback2_0 : public Closure {
 };
 
 template <typename Arg0, typename Arg1>
-class FunctionCallback1_1 : public Callback1<Arg0> {
+class FunctionCallback1_1 : public Callback1<Arg1> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1);
   FunctionCallback1_1(bool perm, Func func, Arg0 arg0)
@@ -317,7 +317,7 @@ class FunctionCallback1_1 : public Callback1<Arg0> {
 };
 
 template <typename Object, typename Arg0, typename Arg1>
-class MemberCallback1_1 : public Callback1<Arg0> {
+class MemberCallback1_1 : public Callback1<Arg1> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1);
   MemberCallback1_1(bool perm, Func func, Object* obj, Arg0 arg0)
@@ -442,7 +442,7 @@ class MemberCallback3_0 : public Closure {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2>
-class FunctionCallback2_1 : public Callback1<Arg0> {
+class FunctionCallback2_1 : public Callback1<Arg2> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2);
   FunctionCallback2_1(bool perm, Func func, Arg0 arg0, Arg1 arg1)
@@ -467,7 +467,7 @@ class FunctionCallback2_1 : public Callback1<Arg0> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2>
-class MemberCallback2_1 : public Callback1<Arg0> {
+class MemberCallback2_1 : public Callback1<Arg2> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2);
   MemberCallback2_1(bool perm, Func func, Object* obj, Arg0 arg0, Arg1 arg1)
@@ -493,7 +493,7 @@ class MemberCallback2_1 : public Callback1<Arg0> {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2>
-class FunctionCallback1_2 : public Callback2<Arg0, Arg1> {
+class FunctionCallback1_2 : public Callback2<Arg1, Arg2> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2);
   FunctionCallback1_2(bool perm, Func func, Arg0 arg0)
@@ -517,7 +517,7 @@ class FunctionCallback1_2 : public Callback2<Arg0, Arg1> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2>
-class MemberCallback1_2 : public Callback2<Arg0, Arg1> {
+class MemberCallback1_2 : public Callback2<Arg1, Arg2> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2);
   MemberCallback1_2(bool perm, Func func, Object* obj, Arg0 arg0)
@@ -644,7 +644,7 @@ class MemberCallback4_0 : public Closure {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3>
-class FunctionCallback3_1 : public Callback1<Arg0> {
+class FunctionCallback3_1 : public Callback1<Arg3> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3);
   FunctionCallback3_1(bool perm, Func func, Arg0 arg0, Arg1 arg1, Arg2 arg2)
@@ -670,7 +670,7 @@ class FunctionCallback3_1 : public Callback1<Arg0> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3>
-class MemberCallback3_1 : public Callback1<Arg0> {
+class MemberCallback3_1 : public Callback1<Arg3> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3);
   MemberCallback3_1(bool perm, Func func, Object* obj, Arg0 arg0, Arg1 arg1, Arg2 arg2)
@@ -697,7 +697,7 @@ class MemberCallback3_1 : public Callback1<Arg0> {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3>
-class FunctionCallback2_2 : public Callback2<Arg0, Arg1> {
+class FunctionCallback2_2 : public Callback2<Arg2, Arg3> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3);
   FunctionCallback2_2(bool perm, Func func, Arg0 arg0, Arg1 arg1)
@@ -722,7 +722,7 @@ class FunctionCallback2_2 : public Callback2<Arg0, Arg1> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3>
-class MemberCallback2_2 : public Callback2<Arg0, Arg1> {
+class MemberCallback2_2 : public Callback2<Arg2, Arg3> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3);
   MemberCallback2_2(bool perm, Func func, Object* obj, Arg0 arg0, Arg1 arg1)
@@ -748,7 +748,7 @@ class MemberCallback2_2 : public Callback2<Arg0, Arg1> {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3>
-class FunctionCallback1_3 : public Callback3<Arg0, Arg1, Arg2> {
+class FunctionCallback1_3 : public Callback3<Arg1, Arg2, Arg3> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3);
   FunctionCallback1_3(bool perm, Func func, Arg0 arg0)
@@ -772,7 +772,7 @@ class FunctionCallback1_3 : public Callback3<Arg0, Arg1, Arg2> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3>
-class MemberCallback1_3 : public Callback3<Arg0, Arg1, Arg2> {
+class MemberCallback1_3 : public Callback3<Arg1, Arg2, Arg3> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3);
   MemberCallback1_3(bool perm, Func func, Object* obj, Arg0 arg0)
@@ -901,7 +901,7 @@ class MemberCallback5_0 : public Closure {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-class FunctionCallback4_1 : public Callback1<Arg0> {
+class FunctionCallback4_1 : public Callback1<Arg4> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4);
   FunctionCallback4_1(bool perm, Func func, Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3)
@@ -928,7 +928,7 @@ class FunctionCallback4_1 : public Callback1<Arg0> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-class MemberCallback4_1 : public Callback1<Arg0> {
+class MemberCallback4_1 : public Callback1<Arg4> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4);
   MemberCallback4_1(bool perm, Func func, Object* obj, Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3)
@@ -956,7 +956,7 @@ class MemberCallback4_1 : public Callback1<Arg0> {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-class FunctionCallback3_2 : public Callback2<Arg0, Arg1> {
+class FunctionCallback3_2 : public Callback2<Arg3, Arg4> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4);
   FunctionCallback3_2(bool perm, Func func, Arg0 arg0, Arg1 arg1, Arg2 arg2)
@@ -982,7 +982,7 @@ class FunctionCallback3_2 : public Callback2<Arg0, Arg1> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-class MemberCallback3_2 : public Callback2<Arg0, Arg1> {
+class MemberCallback3_2 : public Callback2<Arg3, Arg4> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4);
   MemberCallback3_2(bool perm, Func func, Object* obj, Arg0 arg0, Arg1 arg1, Arg2 arg2)
@@ -1009,7 +1009,7 @@ class MemberCallback3_2 : public Callback2<Arg0, Arg1> {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-class FunctionCallback2_3 : public Callback3<Arg0, Arg1, Arg2> {
+class FunctionCallback2_3 : public Callback3<Arg2, Arg3, Arg4> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4);
   FunctionCallback2_3(bool perm, Func func, Arg0 arg0, Arg1 arg1)
@@ -1034,7 +1034,7 @@ class FunctionCallback2_3 : public Callback3<Arg0, Arg1, Arg2> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-class MemberCallback2_3 : public Callback3<Arg0, Arg1, Arg2> {
+class MemberCallback2_3 : public Callback3<Arg2, Arg3, Arg4> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4);
   MemberCallback2_3(bool perm, Func func, Object* obj, Arg0 arg0, Arg1 arg1)
@@ -1060,7 +1060,7 @@ class MemberCallback2_3 : public Callback3<Arg0, Arg1, Arg2> {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-class FunctionCallback1_4 : public Callback4<Arg0, Arg1, Arg2, Arg3> {
+class FunctionCallback1_4 : public Callback4<Arg1, Arg2, Arg3, Arg4> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4);
   FunctionCallback1_4(bool perm, Func func, Arg0 arg0)
@@ -1084,7 +1084,7 @@ class FunctionCallback1_4 : public Callback4<Arg0, Arg1, Arg2, Arg3> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4>
-class MemberCallback1_4 : public Callback4<Arg0, Arg1, Arg2, Arg3> {
+class MemberCallback1_4 : public Callback4<Arg1, Arg2, Arg3, Arg4> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4);
   MemberCallback1_4(bool perm, Func func, Object* obj, Arg0 arg0)
@@ -1215,7 +1215,7 @@ class MemberCallback6_0 : public Closure {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-class FunctionCallback5_1 : public Callback1<Arg0> {
+class FunctionCallback5_1 : public Callback1<Arg5> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5);
   FunctionCallback5_1(bool perm, Func func, Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4)
@@ -1243,7 +1243,7 @@ class FunctionCallback5_1 : public Callback1<Arg0> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-class MemberCallback5_1 : public Callback1<Arg0> {
+class MemberCallback5_1 : public Callback1<Arg5> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5);
   MemberCallback5_1(bool perm, Func func, Object* obj, Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4)
@@ -1272,7 +1272,7 @@ class MemberCallback5_1 : public Callback1<Arg0> {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-class FunctionCallback4_2 : public Callback2<Arg0, Arg1> {
+class FunctionCallback4_2 : public Callback2<Arg4, Arg5> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5);
   FunctionCallback4_2(bool perm, Func func, Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3)
@@ -1299,7 +1299,7 @@ class FunctionCallback4_2 : public Callback2<Arg0, Arg1> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-class MemberCallback4_2 : public Callback2<Arg0, Arg1> {
+class MemberCallback4_2 : public Callback2<Arg4, Arg5> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5);
   MemberCallback4_2(bool perm, Func func, Object* obj, Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3)
@@ -1327,7 +1327,7 @@ class MemberCallback4_2 : public Callback2<Arg0, Arg1> {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-class FunctionCallback3_3 : public Callback3<Arg0, Arg1, Arg2> {
+class FunctionCallback3_3 : public Callback3<Arg3, Arg4, Arg5> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5);
   FunctionCallback3_3(bool perm, Func func, Arg0 arg0, Arg1 arg1, Arg2 arg2)
@@ -1353,7 +1353,7 @@ class FunctionCallback3_3 : public Callback3<Arg0, Arg1, Arg2> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-class MemberCallback3_3 : public Callback3<Arg0, Arg1, Arg2> {
+class MemberCallback3_3 : public Callback3<Arg3, Arg4, Arg5> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5);
   MemberCallback3_3(bool perm, Func func, Object* obj, Arg0 arg0, Arg1 arg1, Arg2 arg2)
@@ -1380,7 +1380,7 @@ class MemberCallback3_3 : public Callback3<Arg0, Arg1, Arg2> {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-class FunctionCallback2_4 : public Callback4<Arg0, Arg1, Arg2, Arg3> {
+class FunctionCallback2_4 : public Callback4<Arg2, Arg3, Arg4, Arg5> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5);
   FunctionCallback2_4(bool perm, Func func, Arg0 arg0, Arg1 arg1)
@@ -1405,7 +1405,7 @@ class FunctionCallback2_4 : public Callback4<Arg0, Arg1, Arg2, Arg3> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-class MemberCallback2_4 : public Callback4<Arg0, Arg1, Arg2, Arg3> {
+class MemberCallback2_4 : public Callback4<Arg2, Arg3, Arg4, Arg5> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5);
   MemberCallback2_4(bool perm, Func func, Object* obj, Arg0 arg0, Arg1 arg1)
@@ -1431,7 +1431,7 @@ class MemberCallback2_4 : public Callback4<Arg0, Arg1, Arg2, Arg3> {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-class FunctionCallback1_5 : public Callback5<Arg0, Arg1, Arg2, Arg3, Arg4> {
+class FunctionCallback1_5 : public Callback5<Arg1, Arg2, Arg3, Arg4, Arg5> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5);
   FunctionCallback1_5(bool perm, Func func, Arg0 arg0)
@@ -1455,7 +1455,7 @@ class FunctionCallback1_5 : public Callback5<Arg0, Arg1, Arg2, Arg3, Arg4> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5>
-class MemberCallback1_5 : public Callback5<Arg0, Arg1, Arg2, Arg3, Arg4> {
+class MemberCallback1_5 : public Callback5<Arg1, Arg2, Arg3, Arg4, Arg5> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5);
   MemberCallback1_5(bool perm, Func func, Object* obj, Arg0 arg0)
@@ -1588,7 +1588,7 @@ class MemberCallback7_0 : public Closure {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-class FunctionCallback6_1 : public Callback1<Arg0> {
+class FunctionCallback6_1 : public Callback1<Arg6> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6);
   FunctionCallback6_1(bool perm, Func func, Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5)
@@ -1617,7 +1617,7 @@ class FunctionCallback6_1 : public Callback1<Arg0> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-class MemberCallback6_1 : public Callback1<Arg0> {
+class MemberCallback6_1 : public Callback1<Arg6> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6);
   MemberCallback6_1(bool perm, Func func, Object* obj, Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5)
@@ -1647,7 +1647,7 @@ class MemberCallback6_1 : public Callback1<Arg0> {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-class FunctionCallback5_2 : public Callback2<Arg0, Arg1> {
+class FunctionCallback5_2 : public Callback2<Arg5, Arg6> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6);
   FunctionCallback5_2(bool perm, Func func, Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4)
@@ -1675,7 +1675,7 @@ class FunctionCallback5_2 : public Callback2<Arg0, Arg1> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-class MemberCallback5_2 : public Callback2<Arg0, Arg1> {
+class MemberCallback5_2 : public Callback2<Arg5, Arg6> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6);
   MemberCallback5_2(bool perm, Func func, Object* obj, Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4)
@@ -1704,7 +1704,7 @@ class MemberCallback5_2 : public Callback2<Arg0, Arg1> {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-class FunctionCallback4_3 : public Callback3<Arg0, Arg1, Arg2> {
+class FunctionCallback4_3 : public Callback3<Arg4, Arg5, Arg6> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6);
   FunctionCallback4_3(bool perm, Func func, Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3)
@@ -1731,7 +1731,7 @@ class FunctionCallback4_3 : public Callback3<Arg0, Arg1, Arg2> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-class MemberCallback4_3 : public Callback3<Arg0, Arg1, Arg2> {
+class MemberCallback4_3 : public Callback3<Arg4, Arg5, Arg6> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6);
   MemberCallback4_3(bool perm, Func func, Object* obj, Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3)
@@ -1759,7 +1759,7 @@ class MemberCallback4_3 : public Callback3<Arg0, Arg1, Arg2> {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-class FunctionCallback3_4 : public Callback4<Arg0, Arg1, Arg2, Arg3> {
+class FunctionCallback3_4 : public Callback4<Arg3, Arg4, Arg5, Arg6> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6);
   FunctionCallback3_4(bool perm, Func func, Arg0 arg0, Arg1 arg1, Arg2 arg2)
@@ -1785,7 +1785,7 @@ class FunctionCallback3_4 : public Callback4<Arg0, Arg1, Arg2, Arg3> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-class MemberCallback3_4 : public Callback4<Arg0, Arg1, Arg2, Arg3> {
+class MemberCallback3_4 : public Callback4<Arg3, Arg4, Arg5, Arg6> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6);
   MemberCallback3_4(bool perm, Func func, Object* obj, Arg0 arg0, Arg1 arg1, Arg2 arg2)
@@ -1812,7 +1812,7 @@ class MemberCallback3_4 : public Callback4<Arg0, Arg1, Arg2, Arg3> {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-class FunctionCallback2_5 : public Callback5<Arg0, Arg1, Arg2, Arg3, Arg4> {
+class FunctionCallback2_5 : public Callback5<Arg2, Arg3, Arg4, Arg5, Arg6> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6);
   FunctionCallback2_5(bool perm, Func func, Arg0 arg0, Arg1 arg1)
@@ -1837,7 +1837,7 @@ class FunctionCallback2_5 : public Callback5<Arg0, Arg1, Arg2, Arg3, Arg4> {
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-class MemberCallback2_5 : public Callback5<Arg0, Arg1, Arg2, Arg3, Arg4> {
+class MemberCallback2_5 : public Callback5<Arg2, Arg3, Arg4, Arg5, Arg6> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6);
   MemberCallback2_5(bool perm, Func func, Object* obj, Arg0 arg0, Arg1 arg1)
@@ -1863,7 +1863,7 @@ class MemberCallback2_5 : public Callback5<Arg0, Arg1, Arg2, Arg3, Arg4> {
 };
 
 template <typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-class FunctionCallback1_6 : public Callback6<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5> {
+class FunctionCallback1_6 : public Callback6<Arg1, Arg2, Arg3, Arg4, Arg5, Arg6> {
  public:
   typedef void (*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6);
   FunctionCallback1_6(bool perm, Func func, Arg0 arg0)
@@ -1887,7 +1887,7 @@ class FunctionCallback1_6 : public Callback6<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5>
 };
 
 template <typename Object, typename Arg0, typename Arg1, typename Arg2, typename Arg3, typename Arg4, typename Arg5, typename Arg6>
-class MemberCallback1_6 : public Callback6<Arg0, Arg1, Arg2, Arg3, Arg4, Arg5> {
+class MemberCallback1_6 : public Callback6<Arg1, Arg2, Arg3, Arg4, Arg5, Arg6> {
  public:
   typedef void (Object::*Func)(Arg0 arg0, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4, Arg5 arg5, Arg6 arg6);
   MemberCallback1_6(bool perm, Func func, Object* obj, Arg0 arg0)

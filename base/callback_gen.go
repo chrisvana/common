@@ -176,7 +176,7 @@ func GetClassName(num_inputs int, num_args int,
 
 func OutputCallbackClass(num_total int, num_args int, object bool) {
   num_inputs := num_total - num_args
-  base_class := GetBaseClass(0, num_args)
+  base_class := GetBaseClass(num_inputs, num_args)
   class := GetClassName(num_inputs, num_args, object, false)
 
   fmt.Println(GetTemplateArgs(num_total, object, false))
