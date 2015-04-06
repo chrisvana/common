@@ -71,6 +71,7 @@
 
  { "cc_library": {
     "name": "tcmalloc_perf",
+    "cc_headers": [ "profiler.h" ],
     "dependencies": [
          "//common/third_party/google/gperftools:libtcmalloc_and_profiler"
     ]
