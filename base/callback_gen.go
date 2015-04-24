@@ -45,25 +45,32 @@ func GetTemplateArgs(num_args int, object bool, final_object bool) string {
     if i > 0 || object { template += ", " }
     template += fmt.Sprintf("typename Arg%d", i)
   }
+  for i := 0; i < num_args; i++ {
+    template += fmt.Sprintf(", typename InputArg%d=Arg%d", i, i)
+  }
   if final_object {
     template += ", typename InputObject=Object"
   }
   return template + ">"
 }
 
-func GetFunctionArgsStart(start int, num_args int) string {
+func GetFunctionArgsStart(input_args bool, start int, num_args int) string {
   output := ""
   for i := start; i < num_args; i++ {
     if i > start {
       output += ", "
     }
-    output += fmt.Sprintf("Arg%d arg%d", i, i)
+    if input_args {
+      output += fmt.Sprintf("InputArg%d arg%d", i, i)
+    } else {
+      output += fmt.Sprintf("Arg%d arg%d", i, i)
+    }
   }
   return output
 }
 
-func GetFunctionArgs(num_args int) string {
-  return GetFunctionArgsStart(0, num_args)
+func GetFunctionArgs(input_args bool, num_args int) string {
+  return GetFunctionArgsStart(input_args, 0, num_args)
 }
 
 func OutputBaseClass(num_args int, name string) {
@@ -72,21 +79,26 @@ func OutputBaseClass(num_args int, name string) {
   fmt.Println(" public:")
   fmt.Println("  " + name + "() {}")
   fmt.Println("  virtual ~" + name + "() {}")
-  fmt.Println("  virtual void Run(" + GetFunctionArgs(num_args) + ") = 0;")
+  fmt.Println("  virtual void Run(" +
+    GetFunctionArgs(false, num_args) + ") = 0;")
   fmt.Println("  virtual bool IsPermanentCallback() = 0;")
   fmt.Println(" private: ")
   fmt.Println("  DISALLOW_COPY_AND_ASSIGN(" + name + ");")
   fmt.Println("};")
 }
 
-func PrintConstructor(class string, num_args int, object bool) {
+func PrintConstructor(class string, num_args int, object bool, constant bool) {
   // Start the constructor
   line := "  " + class + "(bool perm, Func func"
   if object {
-    line += ", Object* obj"
+    if constant {
+      line += ", const Object* obj"
+    } else {
+      line += ", Object* obj"
+    }
   }
   if num_args > 0 {
-    line += ", " + GetFunctionArgs(num_args)
+    line += ", " + GetFunctionArgs(true, num_args)
   }
   line += ")"
   fmt.Println(line)
@@ -106,7 +118,7 @@ func PrintConstructor(class string, num_args int, object bool) {
 
 func PrintRun(num_total int, num_inputs int, object bool) {
   fmt.Println("  virtual void Run(" +
-    GetFunctionArgsStart(num_inputs, num_total) + ") {")
+    GetFunctionArgsStart(false, num_inputs, num_total) + ") {")
   fmt.Println("    bool del = !perm_;")
   line := "    func_("
   if object {
@@ -126,13 +138,16 @@ func PrintRun(num_total int, num_inputs int, object bool) {
   fmt.Println("  }")
 }
 
-func PrintFunctionTypedef(num_total int, object bool) {
+func PrintFunctionTypedef(num_total int, object bool, constant bool) {
   if !object {
     fmt.Println("  typedef void (*Func)(" +
-      GetFunctionArgs(num_total) + ");")
+      GetFunctionArgs(false, num_total) + ");")
+  } else if constant {
+    fmt.Println("  typedef void (Object::*Func)(" +
+      GetFunctionArgs(false, num_total) + ") const;")
   } else {
     fmt.Println("  typedef void (Object::*Func)(" +
-      GetFunctionArgs(num_total) + ");")
+      GetFunctionArgs(false, num_total) + ");")
   }
 }
 
@@ -152,10 +167,14 @@ func GetBaseClass(start_num int, num_args int) string {
 }
 
 func GetClassName(num_inputs int, num_args int,
-  object bool, templated bool) string {
+  object bool, constant bool, templated bool) string {
   class := ""
   if object {
-    class = "MemberCallback"
+    if constant {
+      class = "ConstMemberCallback"
+    } else {
+      class = "MemberCallback"
+    }
   } else {
     class = "FunctionCallback"
   }
@@ -174,16 +193,17 @@ func GetClassName(num_inputs int, num_args int,
   return class
 }
 
-func OutputCallbackClass(num_total int, num_args int, object bool) {
+func OutputCallbackClass(num_total int, num_args int, object bool,
+  constant bool) {
   num_inputs := num_total - num_args
   base_class := GetBaseClass(num_inputs, num_args)
-  class := GetClassName(num_inputs, num_args, object, false)
+  class := GetClassName(num_inputs, num_args, object, constant, false)
 
   fmt.Println(GetTemplateArgs(num_total, object, false))
   fmt.Println("class " + class + " : public " + base_class + " {")
   fmt.Println(" public:")
-  PrintFunctionTypedef(num_total, object)
-  PrintConstructor(class, num_inputs, object)
+  PrintFunctionTypedef(num_total, object, constant)
+  PrintConstructor(class, num_inputs, object, constant)
   fmt.Println("  virtual ~" + class + "() {}")
   fmt.Println("")
   PrintRun(num_total, num_inputs, object)
@@ -195,7 +215,11 @@ func OutputCallbackClass(num_total int, num_args int, object bool) {
   fmt.Println("  bool perm_;")
   fmt.Println("  Func func_;")
   if object {
-    fmt.Println("  Object* object_;")
+    if constant {
+      fmt.Println("  const Object* object_;")
+    } else {
+      fmt.Println("  Object* object_;")
+    }
   }
   for i := 0; i < num_inputs; i++ {
     fmt.Println(fmt.Sprintf("  Arg%d arg%d_;", i, i))
@@ -204,7 +228,7 @@ func OutputCallbackClass(num_total int, num_args int, object bool) {
   fmt.Println("")
 }
 
-func OutputNewCallback(num_total int, num_args int, object bool, perm bool) {
+func OutputNewCallback(num_total int, num_args int, object bool, constant bool, perm bool) {
   num_inputs := num_total - num_args
 
   // tempalte <...>
@@ -223,15 +247,18 @@ func OutputNewCallback(num_total int, num_args int, object bool, perm bool) {
   } else {
     line += "void (*f)"
   }
-  line += "(" + GetFunctionArgs(num_total) + ")"
+  line += "(" + GetFunctionArgs(false, num_total) + ")"
+  if constant {
+    line += " const"
+  }
   if num_inputs > 0 {
-    line += ", " + GetFunctionArgsStart(0, num_inputs)
+    line += ", " + GetFunctionArgsStart(true, 0, num_inputs)
   }
   line += ") {"
   fmt.Println(line)
 
   line = "  return new " +
-    GetClassName(num_inputs, num_args, object, true) + "(";
+    GetClassName(num_inputs, num_args, object, constant, true) + "(";
   fmt.Println(line)
   fmt.Println(fmt.Sprintf("    %t,", perm))
   line = "    f"
@@ -266,18 +293,32 @@ func main() {
   // Output callback classes
   for i := 0; i <= *FLAGS_max_args; i++ {
     for j := 0; j <= i; j++ {
-      OutputCallbackClass(i, j, false)
-      OutputCallbackClass(i, j, true)
+      OutputCallbackClass(i, j, false, false)
+      OutputCallbackClass(i, j, true, false)
+      OutputCallbackClass(i, j, true, true)
     }
   }
 
   // Output NewCallback functions
   for i := 0; i <= *FLAGS_max_args; i++ {
     for j := 0; j <= i; j++ {
-      OutputNewCallback(i, j, false, false)
-      OutputNewCallback(i, j, false, true)
-      OutputNewCallback(i, j, true, false)
-      OutputNewCallback(i, j, true, true)
+      // Func
+      OutputNewCallback(i, j, false, false, false)
+
+      // Perm func
+      OutputNewCallback(i, j, false, false, true)
+
+      // Normal method
+      OutputNewCallback(i, j, true, false, false)
+
+      // Const method
+      OutputNewCallback(i, j, true, true, false)
+
+      // Normal perm method
+      OutputNewCallback(i, j, true, false, true)
+
+      // Const perm method
+      OutputNewCallback(i, j, true, true, true)
     }
   }
 
