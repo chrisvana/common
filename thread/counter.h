@@ -4,6 +4,8 @@
 #ifndef _COMMON_THREAD_COUNTER_H__
 #define _COMMON_THREAD_COUNTER_H__
 
+#include <condition_variable>
+#include <mutex>
 #include "common/base/macros.h"
 #include "common/log/log.h"
 
