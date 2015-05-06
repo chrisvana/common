@@ -7,10 +7,6 @@
 #include "common/base/callback_gen.h"
 #include "common/base/macros.h"
 
-namespace {
-void DoNothing() {}
-}
-
 class AutoClosureRunner {
  public:
   explicit AutoClosureRunner(Closure* c) : c_(c) {}
@@ -25,9 +21,5 @@ class AutoClosureRunner {
 
   Closure* c_;
 };
-
-Closure* NoOpClosure() {
-  return NewCallback(&DoNothing);
-}
 
 #endif  // _COMMON_BASE_CALLBACK_H__
