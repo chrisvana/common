@@ -70,7 +70,7 @@
 #         compiler:		$LTCC
 #         compiler flags:		$LTCFLAGS
 #         linker:		$LD (gnu? $with_gnu_ld)
-#         $progname:	(GNU libtool) 2.4.2 Debian-2.4.2-1.3
+#         $progname:	(GNU libtool) 2.4.2 Debian-2.4.2-1.3ubuntu1
 #         automake:	$automake_version
 #         autoconf:	$autoconf_version
 #
@@ -80,7 +80,7 @@
 
 PROGRAM=libtool
 PACKAGE=libtool
-VERSION="2.4.2 Debian-2.4.2-1.3"
+VERSION="2.4.2 Debian-2.4.2-1.3ubuntu1"
 TIMESTAMP=""
 package_revision=1.3337
 
@@ -5851,10 +5851,9 @@ func_mode_link ()
       # -tp=*                Portland pgcc target processor selection
       # --sysroot=*          for sysroot support
       # -O*, -flto*, -fwhopr*, -fuse-linker-plugin GCC link-time optimization
-      # -stdlib              stdlib library name... should use patch instead.
       -64|-mips[0-9]|-r[0-9][0-9]*|-xarch=*|-xtarget=*|+DA*|+DD*|-q*|-m*| \
       -t[45]*|-txscale*|-p|-pg|--coverage|-fprofile-*|-F*|@*|-tp=*|--sysroot=*| \
-      -O*|-flto*|-fwhopr*|-fuse-linker-plugin|-stdlib=*)
+      -O*|-flto*|-fwhopr*|-fuse-linker-plugin)
         func_quote_for_eval "$arg"
 	arg="$func_quote_for_eval_result"
         func_append compile_command " $arg"
