@@ -17,6 +17,7 @@
 #  if __name__ == "__main__":
 #    main(sys.argv)
 
+import sys
 import common.third_party.google.gflags_python.gflags as gflags
 
 # Interface simplification
